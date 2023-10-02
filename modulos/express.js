@@ -1,3 +1,29 @@
+const carregadores = [
+    {
+        marca: "Samsung",
+        nomeArmario: "Armario 1",
+        status : "Disponivel",
+        tipo: "type-c"
+    },
+    {
+        marca: "Apple" ,
+        nomeArmario: "Armario 2",
+        status : "Indisponivel",
+        tipo: "lightning"
+    },
+    {
+        marca: "LG" ,
+        nomeArmario: "Armario 3",
+        status : "Disponivel",
+        tipo: "micro-usb"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 4",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
+]
 const express = require("express");  //importa o express
 
 const app = express();   // inicializa o express
@@ -24,7 +50,7 @@ app.get("/cadastro", (req, res)=>{
 
 app.get("/alugar", (req, res)=>{
     res.render("alugar", {
-        armario:{nome:"Armario 1"}
+        carregadores
     });
 });
 

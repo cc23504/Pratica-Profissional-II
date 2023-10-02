@@ -8,62 +8,16 @@
     <link rel="stylesheet" href="styleAlugar.css">
 </head>
 <body>
+    <% carregadores.forEach ((carregador) => {%>
     <button>
-        <h3><%= armario.nome %></h3>
-        <span>Disponivel</span>
+        <h3><%= carregador.marca %></h3>
+        <span><%= carregador.status %></span>
+        <span><%= carregador.nomeArmario %></span>
         <span>Tipo de carregador: 
-            <span>Type C</span>
+            <span><%= carregador.tipo %></span>
         </span>
     </button>
-    <button>
-        <h3>Armario02</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
+    <% })%>
 
-   <button>
-        <h3>Armario03</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario04</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario05</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario06</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario07</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario08</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
 </body>
 </html>
