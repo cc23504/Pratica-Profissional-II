@@ -4,16 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styleLogin.css">
+    <title>Área de login</title>
 </head>
 
 <body>
-    <form method="post" action="/">
-        <input name="email" id="email" type="text">
-        <input name="senha" id="senha" type="password">
-        <button type="submit">Entrar</button>
-
-    </form>
+    <h1>ChargerHelp</h1>
+    <br><br>
+    <div class="login-form">
+        <form method="post" action="/">
+            <input name="username" id="username" type="text" maxlength="6" required placeholder="Username">
+            <br><br>
+            <input name="email" id="email" type="text" maxlength="40" required placeholder="E-mail">
+            <br><br>
+            <input name="senha" id="senha" type="password" maxlength="4" required placeholder="Senha">
+            <br><br><br>
+            <button type="submit">Entrar</button>
+            <button type="submit">Cadastro</button>
+        </form>
+    </div>
 </body>
 
 </html>
