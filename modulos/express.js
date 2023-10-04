@@ -23,6 +23,36 @@ const carregadores = [
         status : "Disponivel",
         tipo: "wireless"
     },
+    {
+        marca: "Samsung",
+        nomeArmario: "Armario 5",
+        status : "Disponivel",
+        tipo: "type-c"
+    },
+    {
+        marca: "Apple" ,
+        nomeArmario: "Armario 6",
+        status : "Indisponivel",
+        tipo: "lightning"
+    },
+    {
+        marca: "LG" ,
+        nomeArmario: "Armario 7",
+        status : "Disponivel",
+        tipo: "micro-usb"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 8",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 9",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
 ]
 const express = require("express");  //importa o express
 
