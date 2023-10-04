@@ -1,24 +1,74 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Área de cadastro</title>
-    
-    <link rel="stylesheet" type="text/css" href="styleCadastro.css"/>
-</head>
-<body>
-    <h1>ChargerHelp</h1>
-    <h2>Área de cadastro</h2>
-    <div class="cadastro-form">
-    <form action="processar_cadastro.php" method="post">
-        <input name="nome" id="nome" type="text" maxlength="40" required placeholder="Nome">
-        <br><br>
-        <input name="email" id="email" type="text" maxlength="40" required placeholder="E-mail">
-        <br><br>
-        <input type="text" id="cpf" name="cpf" type="number" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required placeholder="CPF = 123.456.789-00"><br><br>
-        <br>
-        <button type="submit">Cadastrar</button>
-    </form></div>
-</body>
-</html>
+body {
+    background-color: rgb(108, 138, 108);
+    align-items: center;
+    text-align: center;
 
+}
+
+h1 {
+    margin-left: 2%;
+    margin-bottom: 1%; 
+    margin-top: 2%;
+    color: rgb(219, 219, 219);
+    font-family: "stone";
+    font-size: 135px;
+    -webkit-text-stroke: 1.7px rgb(12, 70, 12);
+}
+
+p{
+    font-family: "stone";
+    font-size: 20px;
+}
+
+
+@font-face {
+    font-family: "stone";
+    src: url('./fontes/stoNe.ttf') format ('truetype');
+}
+input{
+    font-family: "stone";
+    background-color: rgb(131, 130, 130);
+    border-color: rgb(219, 219, 219);
+    font-size: 15px;
+    height: 28px;
+    width: 280px;
+}
+.cadastro-form {
+    width: 495px;
+    margin: 0 auto;
+    padding: 45px;
+    color:  rgb(61, 61, 61);
+    font-size: 22px;
+    font-family: "stone";
+    background-color: rgb(114, 113, 113);
+    border-color: rgb(219, 219, 219); 
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+input::placeholder {
+    color: rgb(61, 61, 61);
+}
+
+
+button{
+    font-size: 25px;
+    font-family: "stone";
+    margin-right: 4px;
+    margin-left: 4px;
+    background-color:rgb(131, 130, 130);
+    border-color: rgb(219, 219, 219);
+    color: rgb(61, 61, 61);
+}
+
+.link_login{
+    color: rgb(12, 70, 12);
+    font-family: "stone";
+}
+
+
+footer{
+    color: rgb(219, 219, 219);
+    font-size: 23px;
+}

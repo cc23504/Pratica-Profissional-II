@@ -1,24 +1,27 @@
 body {
-    background-color: rgb(43, 41, 41);
+    background-color: rgb(108, 138, 108);
     align-items: center;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
 h1 {
     margin-left: 2%;
     margin-bottom: 1%; 
     margin-top: 2%;
-    text-align: left;
-    color:  rgb(78, 78, 78);
+    color: rgb(219, 219, 219);
     font-family: "stone";
-    font-size: 60px;
+    font-size: 105px;
+    -webkit-text-stroke: 1.7px rgb(12, 70, 12);
+}
+
+h2{
+    font-family: "stone";
+    color: rgb(61, 61, 61);
 }
 
 h3{
     font-family: "stone";
-    color: green;
+    color: rgb(131, 130, 130);
 }
 
 @font-face {
@@ -29,7 +32,7 @@ h3{
 button{
     font-size: 20px;
     font-family: "stone";
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(61, 61, 61);
     color: rgb(102, 102, 102);
     margin-right: 2px; /* Espaço à direita de cada botão */
     margin-bottom: 20px; /* Espaço abaixo de cada botão */
