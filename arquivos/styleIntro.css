@@ -98,7 +98,7 @@ header{
     height: 100vh;
     width: 100%;
     display: flex;
-    grid-template-columns: 4fr,2fr;
+    grid-template-columns: 2fr,1fr; 
     align-items: center;
     gap: 2rem;
 
@@ -108,14 +108,28 @@ header{
     font-size: var(--h1-font);
     line-height: 1.2;
     margin-bottom: 2px;
+    margin-left: 25%;
+
+
+}
+
+.home-text h2{
+    font-size: var(--h1-font);
+    line-height: 1.2;
+    margin-bottom: 2px;
+    margin-left: 40%;
+
 
 }
 
 .home-text h5{
     color: #4e9c61;
     font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 60px;
+    font-weight: 500;
+    margin-bottom: 30px; /*30; */
+    margin-left: 40%; */
+    text-align: left;
+
 
 }
 
@@ -123,7 +137,8 @@ header{
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 35px;
+    margin-bottom: 35px; /*35px;*/
+    margin-left: 40%;
 
 }
 
@@ -131,7 +146,7 @@ header{
     max-width: 80%;
     width: 28rem;
     height: auto;
-    margin-left: 25%;
+    margin-left: 50%;
     border-radius: 50%
 
 }
@@ -145,6 +160,8 @@ header{
     border: solid 2px var(--text-color);
     transition: all 0.55s ease;
     color: #fff;
+    margin-left: 35%;
+
 }
 
 .btn:hover{
@@ -163,6 +180,8 @@ header{
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    margin-left: 5%;
+
 
 }
 
@@ -217,7 +236,7 @@ header{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5 ease;
+    transition: all .55 ease;
     cursor: pointer;
 
 }
