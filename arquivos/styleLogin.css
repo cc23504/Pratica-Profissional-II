@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(108, 138, 108);
+    background-color:   #adb9af;
     align-items: center;
     text-align: center;
 }
@@ -9,13 +9,14 @@ h1 {
     margin-bottom: 1%; 
     margin-top: 2%;
     color: rgb(219, 219, 219);
+    text-shadow: 4px 4px rgb(12, 70, 12);
     font-family: "stone";
-    font-size: 135px;
-    -webkit-text-stroke: 1.7px rgb(12, 70, 12);
+    font-size: 138px;
 }
 p{
     font-family: "stone";
-    font-size: 20px;
+    font-size: 21px;
+    color: rgb(102, 99, 99);
 }
 
 @font-face {
@@ -24,7 +25,7 @@ p{
 }
 input{
     font-family: "stone";
-    background-color: rgb(131, 130, 130);
+    background-color:   #adb9af;
     border-color: rgb(219, 219, 219);
     font-size: 15px;
     height: 28px;
@@ -34,11 +35,12 @@ input{
     width: 495px;
     margin: 0 auto;
     padding: 45px;
-    color:  rgb(61, 61, 61);
+    color:  rgb(102, 99, 99);
     font-size: 22px;
     font-family: "stone";
-    background-color: rgb(114, 113, 113);
-    border-color: rgb(219, 219, 219); 
+    background-color:  #adb9af;
+    box-shadow: 0px 4px 12px 0px  rgb(102, 99, 99), 0 6px 20px 0  rgb(102, 99, 99);
+    border-color: rgb(102, 99, 99);
     border-width: 1px;
     border-style: solid;
 }
@@ -48,9 +50,9 @@ button{
     font-family: "stone";
     margin-right: 4px;
     margin-left: 4px;
-    background-color:rgb(131, 130, 130);
+    background-color:   #adb9af;
     border-color: rgb(219, 219, 219);
-    color: rgb(61, 61, 61);
+    color: rgb(102, 99, 99);
 }
 
 .link_cadastro {
@@ -59,6 +61,6 @@ button{
 }
 
 footer{
-    color: rgb(219, 219, 219);
+    color: rgb(102, 99, 99);
     font-size: 23px;
 }

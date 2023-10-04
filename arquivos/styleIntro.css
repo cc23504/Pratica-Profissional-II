@@ -34,6 +34,8 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 30px 8%;
+    color: rgb(219, 219, 219);
+    text-shadow: 2px 2px rgb(12, 70, 12);
 }
 
 
@@ -127,7 +129,7 @@ header{
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px; /*30; */
-    margin-left: 40%; */
+    margin-left: 40%; 
     text-align: left;
 
 
@@ -147,7 +149,8 @@ header{
     width: 28rem;
     height: auto;
     margin-left: 50%;
-    border-radius: 50%
+    border-radius: 50%;
+    box-shadow: 4px 4px  rgb(131, 130, 130);
 
 }
 
@@ -161,6 +164,7 @@ header{
     transition: all 0.55s ease;
     color: #fff;
     margin-left: 35%;
+    
 
 }
 
