@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+/* paleta de cores do site e o tamanho de fontes que sera usado */
+:root{
+    --bg-color: var(--bg-color) #b8e7c2;
+    --text-color: #fff;
+    --main-color: #4e9c61;
+    --other-color: #7cff9d;
+    --h1-font: 4rem;
+    --p-font: 1rem;
+
+}
+
+body{
+    background-color: #adb9af;
+    color: var(--text-color);
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 8%;
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: bold;
+     
+}
+
+/* estilo simbolo logo */
+.logo i{
+    color: var(--main-color);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.navegação{
+    display: flex;
+}
+
+.navegação a{
+    color: var(--text-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin: 0 30px;
+    transition: a .55s ease;
+}
+
+.navegação a:hover{
+    color: var(--main-color)
+}
+
+.header-icons{
+    display: flex;
+    align-items: center;
+}
+
+#menu{
+    font-size: 45px;
+    color: var(--text-color);
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.header-icons i{
+    margin-right: 25px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.header-icons i:hover{
+    transform: translateY(-5px);
+    color: var(--main-color);
+}
+
+.home{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    grid-template-columns: 4fr,2fr;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.home-text h1{
+    font-size: var(--h1-font);
+    line-height: 1.2;
+    margin-bottom: 2px;
+
+}
+
+.home-text h5{
+    color: #4e9c61;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 60px;
+
+}
+
+.home-text h3{
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+
+}
+
+.home-img img{
+    max-width: 80%;
+    width: 28rem;
+    height: auto;
+    margin-left: 25%;
+    border-radius: 50%
+
+}
+
+.btn{
+    display: inline-block;
+    padding: 15px 70px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: solid 2px var(--text-color);
+    transition: all.55 ease;
+    color: #fff;
+}
+
+.btn :hover{
+    background: var(--text-color);
+    border: 2px solid var(--text-color);
+    color: #000;
+}

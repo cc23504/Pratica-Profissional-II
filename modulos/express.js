@@ -35,8 +35,12 @@ app.set("view engine","ejs");  // define o modulo que executa as views de html e
 
 app.set("class", "./arquivos/classes");   //diz para o express aonde estaram os arquivos de classes 
 
-app.get("/", (req, res)=>{   // criando a rota principal que funciona como Login
-    res.render("login");     // esta renderizando a pagina de login
+app.get("/", (req, res)=>{   // criando a rota principal que funciona para pagina de apresentação
+    res.render("intro");     // esta renderizando a pagina de introdução
+});
+
+app.get("/login", (req, res)=>{   
+    res.render("login");     
 });
 
 app.post("/", (req, res)=>{4
