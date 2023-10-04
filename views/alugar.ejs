@@ -1,72 +1,36 @@
 <!-- lista de armarios disponiveis ou gavetas ou carregadores -->
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de alugar - ChargerHelp</title>
     <link rel="stylesheet" href="styleAlugar.css">
 </head>
+
 <body>
     <h1>ChargerHelp</h1>
     <h2>Sessão de armários</h2>
     <br>
-    <button>
-        <h3>Armario01</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario02</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-
-   <button>
-        <h3>Armario03</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario04</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario05</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario06</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario07</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
-    <button>
-        <h3>Armario08</h3>
-        <span>Disponivel</span>
-        <span>Tipo de carregador: 
-            <span>Type C</span>
-        </span>
-    </button>
+    <% carregadores.forEach ((carregador)=> {%>
+        <button>
+            <h3>
+                <%= carregador.marca %>
+            </h3>
+            <span>
+                <%= carregador.status %>
+            </span>
+            <span>
+                <%= carregador.nomeArmario %>
+            </span>
+            <span>Tipo de carregador:
+                <span>
+                    <%= carregador.tipo %>
+                </span>
+            </span>
+        </button>
+        <% })%>
 </body>
+
 </html>
