@@ -54,6 +54,14 @@ const carregadores = [
         tipo: "wireless"
     },
 ]
+const usuarios = [
+    {
+        id_usuario : "",
+        nome_usuario : "",
+        telefone_usuario : "",
+        email_usuario : "",
+    }
+]
 const express = require("express");  //importa o express
 
 const app = express();   // inicializa o express
