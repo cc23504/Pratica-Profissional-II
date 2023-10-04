@@ -5,24 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styleLogin.css">
-    <title>Área de login</title>
+    <title>login - ChargerHelp</title>
 </head>
 
 <body>
     <h1>ChargerHelp</h1>
     <br><br>
     <div class="login-form">
-        <form method="post" action="/">
-            <input name="username" id="username" type="text" maxlength="6" required placeholder="Username">
-            <br><br>
-            <input name="email" id="email" type="text" maxlength="40" required placeholder="E-mail">
-            <br><br>
-            <input name="senha" id="senha" type="password" maxlength="4" required placeholder="Senha">
-            <br><br><br>
-            <button type="submit">Entrar</button>
-            <button type="submit">Cadastro</button>
-        </form>
-    </div>
+         <form method="post" action="/">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" maxlength="20" required>
+                <br><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" maxlength="40" required >
+                <br><br>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" maxlength="20" required >
+                <br><br>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+        <br>
+        <p>Não possui um cadastro? <a class="link_cadastro" href="https://probable-garbanzo-5gx5q5r5647fp49g-3000.app.github.dev/cadastro">Clique aqui para se cadastrar</a></p>
+    </main>
+    <footer>
+        <p>&copy; 2023 ChargerHelp</p>
+    </footer>
 </body>
 
 </html>
