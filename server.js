@@ -1,1 +1,1 @@
-require("./modulos/express")
+require("./app/config/express")

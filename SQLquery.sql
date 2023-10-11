@@ -2,9 +2,11 @@ create schema Carregaytor
 
 create table Carregaytor.Cliente (
 	id_usuario INT IDENTITY,
+	cpf_usuario INT NOT NULL,
 	nome_usuario NOT NULL,
 	telefone_usuario NOT NULL,
 	email_usuario NOT NULL,
+	senha_usuario NOT NULL,
 	CONSTRAINT PK_Usuario PRIMARY KEY (id_usuario)
 )
 
@@ -28,6 +30,9 @@ create table Carregaytor.Pedido (
     id_pedido INT IDENTITY,
     id_usuario NOT NULL,
     id_lock NOT NULL,
+	status_pedido NOT NULL,
+	horario_inicio date NOT NULL,
+	horario_final date NOT NULL,e
     CONSTRAINT PK_pedido PRIMARY KEY (id_pedido),
     CONSTRAINT FK_id_usuario FOREIGN KEY (id_usuario)
 	    REFERENCES Carregaytor.Cliente(id_usuario),
