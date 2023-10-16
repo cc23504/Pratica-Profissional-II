@@ -1,10 +1,11 @@
 {
   "name": "projeto-de-pratica-ii",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto para matéria de prática profissional",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,13 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cc23504/Projeto-Integrador-PP-II.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cc23504/Projeto-Integrador-PP-II/issues"
+  },
+  "homepage": "https://github.com/cc23504/Projeto-Integrador-PP-II#readme"
 }
