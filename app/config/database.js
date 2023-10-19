@@ -1,6 +1,6 @@
-const mysql = require("mysql2");
+const mssql = require("mssql");
 
-const connection = mysql.createConnection({
+const connection = mssql.createConnection({
     host:     'regulus.cotuca.unicamp.br',
     user:     'BD23507',
     password: 'BD23507',
