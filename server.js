@@ -1,1 +1,1 @@
-require("./app/config/express")
+require("./app/config/express");

@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,63 +17,87 @@
 <body>
     <header>
         <a href="#" class="logo"> <i class='bx bx-plus-circle'></i>ChargerHelp</a>
-
         <ul class="navegação">
             <li><a href="cadastro">Cadastro</a></li>
             <li><a href="login">Login</a></li>
-        </ul><!--navegação -->
-
+        </ul>
         <div class="header-icons">
             <i class='bx bx-message'></i>
             <div id="menu"><i class='bx bx-menu'></i></div>
-        </div><!--header-icons-->
-
+        </div>
     </header>
-
-    <section class="home"> 
-
+    <section class="home">
         <div class="home-img">
             <img src="./produto1.png" class="one">
-        </div><!--home-img-->
-
+        </div>
         <div class="home-text">
-            <h1>Carregue </h1>
-            <h2> Grátis</h2>
+            <h1>Carregue</h1>
+            <h2>Grátis</h2>
             <h5>Porta verde livre para te ajudar</h5>
             <h3>ChargerHelp ajuda você</h3>
-            <a href="#" class="btn">Saiba Mais</a>
-        </div><!--home-text-->
-
-    </section><!--home -->
-    
+            <a href="#informacoes" class="btn">Saiba Mais</a>
+        </div>
+    </section>
     <div class="main">
         <div class="row">
-            <li><img src="./MAIN1.JPG" onclick="slider('produto1.png')"></li>
-        </div><!--row-->
-
+            <li><img src="./MAIN1.jpg" onclick="slider('produto1.png')"></li>
+        </div>
         <div class="row2">
-            <li><img src="./main2.JPG" onclick="slider('produto2.png')"></li>
-        </div><!--row2-->
-
+            <li><img src="./main2.jpg" onclick="slider('produto2.png')"></li>
+        </div>
         <div class="row3">
-            <li><img src="./MAIN3.JPG" onclick="slider('produto3.png')"></li>
-        </div><!--row3-->
-
-    </div><!--main-->
-
+            <li><img src="./MAIN3.jpg" onclick="slider('produto3.png')"></li>
+        </div>
+    </div>
     <script>
-        function slider (anything){
-            document.querySelector ('.one') .src = anything;
+        function slider(anything) {
+            document.querySelector('.one').src = anything;
         };
-
         let menu = document.querySelector('#menu-icon');
-        let navbar = document.querySelector ('.navbar');
-
+        let navbar = document.querySelector('.navbar');
         menu.onclick = () => {
-            menu.classList.toggle ('bx-x')
-            navbar.classList.toggle ('open');
+            menu.classList.toggle('bx-x')
+            navbar.classList.toggle('open');
         }
     </script>
+    <br><br><br>
+    <hr>
+    <div id="informacoes">
+        <h1>Carregue de graça sem tempo limitado</h1>
+    </div>
+    <div id="conteudo">
+        <br>
+        <p>Carregue seu celular a qualquer momento de maneira simples, rápida e fácil.</p>
+        <img src="./bateria.png">
+        <p class="texto">
+            Não precisa ficar aguardando o carregamento, com o <b>ChargerHelp</b> você pode realizar suas tarefas e
+            voltar quando o horário selecionado terminar.
+            <br>
+            <b>O tempo mínimo exigido é de 30 minutos, mas você também pode alugar por 1 hora ou mais!</b>
+        </p>
+        <br><br>
+
+        <a href="#aviso" class="btn2">Aviso</a>
+
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <div id="aviso">
+            <p id="atencao">Atenção</p>
+            <p>Não deixe seu celular sobrecarregado com muitas horas de carregamento desnecessário, pois isso pode
+                resultar em:</p>
+            <p><b>Desgaste da bateria:</b> Carregar o telefone por mais tempo do que o necessário pode desgastar a
+                bateria mais rapidamente;</p>
+            <p><b>Aquecimento:</b> O superaquecimento pode afetar negativamente o desempenho do dispositivo e, em casos
+                extremos, representar riscos de segurança;</p>
+            <p><b>Menor eficiência:</b> Com o tempo, baterias que são frequentemente carregadas desnecessariamente podem
+                perder a capacidade de reter uma carga completa;</p>
+            <br>
+            <b>Por favor, deixe carregando somente pelo tempo necessário para evitar esses problemas. ChargerHelp se
+                preocupa com você!</b>
+        </div>
+    </div>
+    <br><br><br><br><br>
 </body>
 
 </html>
