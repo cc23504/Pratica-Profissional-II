@@ -209,8 +209,7 @@ header{
     height: auto;
     max-width: 100%;
     border-radius: 70px; 
-    /*border-radius: 10px;  Valor do arredondamento em pixels ou outra unidade de medida */
-    border: 3px solid var(--main-color); /* Cor da borda em formato hexadecimal (vermelho neste exemplo) */
+    border: 3px solid var(--main-color); 
 }
 
 .row{
