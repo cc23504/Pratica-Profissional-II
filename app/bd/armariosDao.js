@@ -5,7 +5,7 @@ class ArmariosDao {
     
     listarArmarios() {
         return new Promise((resolve, reject) => {
-            var sql = 'SELECT idClie, cpfClie, emailClie, nomeClie, DATE_FORMAT(dataNiverClie,"%d/%m/%Y") as dataNiverClie FROM CLIENTES ORDER BY idClie';
+            var sql = 'SELECT * FROM ProdutosComEstoque;'
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);

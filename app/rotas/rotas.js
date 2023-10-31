@@ -1,3 +1,6 @@
+const classClientesCON = require('../controllers/clientesCON');
+const clienteCon = new classClientesCON();
+
 module.exports = (app) => {
     app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
@@ -12,6 +15,8 @@ module.exports = (app) => {
     app.get("/login", (req, res) => {
         res.render("login");
     });
+
+    app.post("/fazerLoginCliente", clienteCon.fazerLogin());
 
     app.post("/", (req, res) => {
         4

@@ -1,9 +1,8 @@
 const mssql = require("mssql");
 
-let connection;
-
 try {
-  connection = mssql.connect({
+  mssql.connect({
+    options: { trustServerCertificate: true },
     server: 'regulus.cotuca.unicamp.br',
     user: 'BD23507',
     password: 'BD23507',
@@ -16,4 +15,4 @@ try {
   console.log("ERRO na CONEXÃO com o BD NODEJS");
 }
 
-module.exports = connection;
+module.exports = mssql;
