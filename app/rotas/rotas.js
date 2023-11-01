@@ -1,5 +1,5 @@
-const classClientesCON = require('../controllers/clientesCON');
-const clienteCon = new classClientesCON();
+const classClientesCON = require('../controllers/clientesCON'); //importanto a class
+const clienteCon = new classClientesCON();      // instanciando a class
 
 module.exports = (app) => {
     app.use((req, res, next) => {
@@ -16,13 +16,7 @@ module.exports = (app) => {
         res.render("login");
     });
 
-    app.post("/fazerLoginCliente", clienteCon.fazerLogin());
-
-    app.post("/", (req, res) => {
-        4
-        console.log(req.body);
-        res.send(req.body);
-    })
+    app.post("/fazerLoginCliente", clienteCon.fazerLogin()); //o formulario envia as informacoes de fazer login atraves da rota fazerLoginCliente 
 
     app.get("/cadastro", (req, res) => {
         res.render("cadastro");
