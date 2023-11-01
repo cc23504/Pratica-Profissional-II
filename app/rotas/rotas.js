@@ -1,5 +1,9 @@
-const classClientesCON = require('../controllers/clientesCON'); //importanto a class
+const classArmariosCON = require('../controllers/armariosCON'); //importanto a classe armariosCON
+const classClientesCON = require('../controllers/clientesCON'); //importanto a class clientesCON
+
+
 const clienteCon = new classClientesCON();      // instanciando a class
+const armariosCon = new classArmariosCON();      // instanciando a class
 
 module.exports = (app) => {
     app.use((req, res, next) => {
@@ -22,11 +26,7 @@ module.exports = (app) => {
         res.render("cadastro");
     });
 
-    app.get("/alugar", (req, res) => {
-        res.render("alugar", {
-            carregadores
-        });
-    });
+    app.get("/alugar", armariosCon.carregarPaginaArmarios());
 
     app.get("/confirmacao", (req, res) => {
         res.render("confirmacao");

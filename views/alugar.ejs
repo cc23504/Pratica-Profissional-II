@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <title>Área de alugar - ChargerHelp</title>
     <link rel="stylesheet" href="styleAlugar.css">
 </head>
@@ -13,25 +17,46 @@
     <h1>ChargerHelp</h1>
     <h2>Seleção de armários</h2>
     <br>
-    <% carregadores.forEach ((carregador)=> {%>
-        <button>
-            <h3>
-                <%= carregador.marca %>
-            </h3>
-            <span>
-                <%= carregador.status %>
-            </span>
-            <span>
-                <%= carregador.nomeArmario %>
-            </span>
-            <span>Tipo de carregador:
-                <span>
-                    <%= carregador.tipo %>
-                </span>
-            </span>
-        </button>
-        <% })%>
-        
+    <form action="" class="form-armarios">
+        <div class="lista-armarios">
+            <% armarios.forEach ((armario)=> {%>
+                <input type="radio" class="input"  hidden id="armario-<%= armario.id_armario %>" name="armario" value="<%= armario.id_armario %>"
+                    <% if (armario.status==='Livre' && armario.id_armario == "1" ) { %>checked<% } %>    
+                <% if (armario.status==='Ocupado' ) { %>disabled<% } %>
+                    >
+
+                    <label for="armario-<%= armario.id_armario %>" class="cartao-armario">
+                        <img style="width: 108px; height: 110px; border-top-left-radius: 14px; border-bottom-left-radius: 14px"
+                            src="/type-c.jpg" />
+
+                        <div class="armario-informacao">
+                            <div class="armario-informacao-topo">
+                                <h3 class="armario-nome">
+                                    Armário <%= armario.id_armario %>
+                                </h3>
+
+                            </div>
+
+                            <div class="armario-informacao-baixo">
+                                <h4 class="armario-tipo-carregador">
+                                    <%= armario.tipo_carregador %>
+                                </h4>
+                                <h5 class="armario-marca-carregador">
+                                    <%= armario.marca_carregador %>
+                                </h5>
+                                <span
+                                    class="armario-status <% if (armario.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>">
+                                    <%= armario.status %>
+                                </span>
+                            </div>
+
+                        </div>
+                    </label>
+
+                    <% })%>
+        </div>
+        <button type="submit" class="btn-alugar">ALUGAR</button>
+    </form>
 </body>
 
 </html>

@@ -1,12 +1,14 @@
 body {
-    background-color:   #adb9af;
+    background-color: #adb9af;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
 h1 {
     margin-left: 2%;
-    margin-bottom: 1%; 
+    margin-bottom: 1%;
     margin-top: 2%;
     color: rgb(219, 219, 219);
     text-shadow: 4px 4px rgb(12, 70, 12);
@@ -14,13 +16,13 @@ h1 {
     font-size: 140px;
 }
 
-h2{
+h2 {
     font-family: "stone";
     font-size: 36px;
     color: rgb(102, 99, 99);
 }
 
-h3{
+h3 {
     font-family: "stone";
     color: rgb(102, 99, 99);
 }
@@ -30,15 +32,144 @@ h3{
     src: url('./fontes/stoNe.ttf') format ('truetype');
 }
 
-button{
-    font-size: 20px;
-    font-family: "stone";
-    background-color:  #adb9af;
+h3, h4, h5 {
+    margin: 0;
+}
+
+.form-armarios {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
+}
+
+.cartao-armario {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+
+    width: 100%;
+    max-width: 460px;
+    max-height: 110px;
+    border-radius: 14px;
+    border: 2px white solid;
+}
+
+input[type="radio"]:checked+label {
+    border: 2px #4E9C61 solid;
+    background-color: rgba(193, 255, 183, 0.2);
+}
+
+input[type="radio"]:disabled+label {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+input[type="radio"]:disabled+label:hover {
+    border-color: white;
+    background-color: transparent;
+}
+
+.cartao-armario:hover {
+    border: 2px #c1ffb7 solid;
+    background-color: rgba(193, 255, 183, 0.2);
+}
+
+.armario-informacao {
+    display: flex;
+    height: 75%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    width: 100%;
+}
+
+.lista-armarios {
+    display: flex;
     padding: 20px;
-    color:  rgb(102, 99, 99);
-    border-color: rgb(219, 219, 219);
-    box-shadow: 0px 4px 12px 0px  rgb(131, 130, 130), 0 6px 20px 0  rgb(131, 130, 130);
-    margin-right: 6px; /* Espaço à direita de cada botão */
-    margin-bottom: 20px; /* Espaço abaixo de cada botão */
-    
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.armario-informacao-topo {
+    width: 100%;
+    height: fit;
+    display: flex;
+    justify-content: space-between;
+}
+
+.armario-nome {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.armario-informacao-baixo {
+    width: 100%;
+    height: fit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.armario-tipo-carregador {
+    text-align: center;
+    color: #F5F5F5;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word
+}
+
+.armario-marca-carregador {
+    text-align: center;
+    color: #F5F5F5;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word
+}
+
+.armario-status {
+    padding: 4px 20px;
+    border-radius: 8px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.armario-disponivel-status {
+    background-color: #C1FFB7;
+    color: #4E9C61;
+}
+
+.armario-ocupado-status {
+    background-color: #FFB7B7;
+    color: #923C3C;
+}
+
+.btn-alugar{
+    width: 400px;
+    display: inline-block;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 20px 80px;
+    font-size: 16px;
+    font-weight: 500;
+    background: transparent;
+    border: solid 1px white;
+    transition: all 0.55s ease;
+    color: white;
+}
+
+.btn-alugar:hover{
+    border: none;
+    background: #4E9C61;
+    color: white;
 }

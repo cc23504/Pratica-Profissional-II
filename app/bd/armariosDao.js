@@ -5,11 +5,11 @@ class ArmariosDao {
     
     listarArmarios() {
         return new Promise((resolve, reject) => {
-            var sql = 'SELECT * FROM ProdutosComEstoque;'
+            var sql = 'SELECT * FROM ViewArmariosComStatus;' // chama a view que retorna armário com informação do carregador e status
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
+                    return reject("A busca da lista de armários FALHOU!");
                 }
                 resolve(recordset);
             });
