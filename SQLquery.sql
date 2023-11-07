@@ -1,9 +1,9 @@
 create schema ChargerHelp
 
 create table ChargerHelp.Cliente (
-	cpf_cliente int IDENTITY ,
+	cpf_cliente VARCHAR(11) NOT NULL,
 	nome_cliente varchar(40) NOT NULL,
-	telefone_cliente char(12) NOT NULL,
+	telefone_cliente int char(12) NOT NULL,
 	email_cliente varchar(40) NOT NULL,
 	senha_cliente varchar(20) NOT NULL,
 	CONSTRAINT PK_cliente PRIMARY KEY (cpf_cliente)
@@ -26,7 +26,7 @@ create table ChargerHelp.Armario(
 
 create table ChargerHelp.Pedido (
     id_pedido INT IDENTITY,
-    cpf_cliente int NOT NULL,
+    cpf_cliente VARCHAR(11) NOT NULL,
     id_armario int NOT NULL,
 	status_pedido varchar(10) NOT NULL,
 	horario_inicio date NOT NULL,
