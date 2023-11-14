@@ -21,19 +21,21 @@
 }
 
 body{
-    background-color: var(--bg-color);
+    background-color: rgb(157, 173, 157);
     color: var(--text-color);
 }
 
 header{
     width: 100%;
+    height: 80px;
     top: 0;
     right: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 30px 8%;
+    background-color: rgb(126, 153, 126);
     color: var(--text-color);
 }
 
@@ -43,7 +45,7 @@ header{
     display: flex;
     align-items: center;
     color: var(--text-color);
-    font-size: 35px;
+    font-size: 28px;
     font-weight: bold;
      
 }
@@ -60,7 +62,7 @@ header{
 }
 
 .navegação a{
-    color:  var(--second-text-color);
+    color: var(--text-color);
     font-size: var(--p-font);
     font-size: 20px;
     margin: 0 30px;
@@ -83,38 +85,51 @@ h1 {
     font-size: 70px;
 }
 
+h2{
+    color: var(--text-color);
+    text-shadow: 2px 2px var(--main-color);
+
+    font-size: 30px;
+}
 p{
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: rgb(102, 99, 99);
+    font-size: 20px;
+    margin-top: 16px;
 }
 
 
-input{
-    font-family: 'Poppins', sans-serif;
-    background-color:   #adb9af;
-    border-color: rgb(219, 219, 219);
-    font-size: 15px;
-    height: 28px;
-    width: 200x;
-}
 .cadastro-form {
-    width: 650px;
-    height: 400px;
+    width: 480px;
+    height: 480px;
     margin: 0 auto;
-    padding: 45px;
     color: var(--text-color);
-    font-size: 22px;
+    background-color: rgb(126, 153, 126);
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(157, 173, 157);
+    border-color: var(--main-color);
     border-width: 1px;
     border-style: solid;
+    text-align: center;
+    border-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 
-input::placeholder {
-    color:  rgb(102, 99, 99);
+input {
+    font-family: 'Poppins', sans-serif;
+    border-color: rgb(219, 219, 219);
+    font-size: 18px;
+    width: 380px;
+    height: 34px;
+    margin-top: 14px;
+    border-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 
@@ -124,9 +139,13 @@ button{
     font-family: 'Poppins', sans-serif;
     margin-right: 4px;
     margin-left: 4px;
-    background-color:   grey;
-    border-color: rgb(219, 219, 219);
+    background-color:   var(--main-color);
     color: var(--text-color);
+    border-color: var(--main-color);
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .link_login{
@@ -135,6 +154,5 @@ button{
 }
 
 footer{
-    color: rgb(102, 99, 99);
-    font-size: 23px;
+    color: rgb(90, 90, 90);
 }
