@@ -3,13 +3,14 @@ class PedidoDao {
         this._bd = bd;
     }
 
-    inserirNovoPedido(idUsuario, idArmario, status, dorarioInicio, horarioFim) {
+    inserirNovoPedido(idCliente, idArmario,statusInicial,dataAgora) {
         return new Promise((resolve, reject) => {
-            const sql = `INSERT INTO CLIENTES (cpfClie, nomeClie, dataNiverClie, emailClie) VALUES ('${cpf}', '${nome}','${telefone}', '${email}')`
+            const sql = `INSERT INTO ChargerHelp.Pedido (cod_cliente, id_armario, status_pedido, horario_inicio) VALUES ('${idCliente}', '${idArmario}', '${statusInicial}', '${dataAgora}');
+            select @@IDENTITY as idPedido`
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
+                    return reject("FALHA NO PEDIDO!");
                 }
                 resolve(recordset);
             });
@@ -18,57 +19,29 @@ class PedidoDao {
 
     buscarPedidosPorId(idPedido) {
         return new Promise((resolve, reject) => {
-            var sql = 'SELECT idClie, cpfClie, emailClie, nomeClie, DATE_FORMAT(dataNiverClie,"%d/%m/%Y") as dataNiverClie FROM CLIENTES ORDER BY idClie';
+            var sql = `'SELECT * FROM ChargerHelp.Pedido where id_pedido ='${idPedido}`;
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
+                    return reject("PEDIDO NÃO ENCONTRADO!");
                 }
                 resolve(recordset);
             });
         });
     }
 
-    buscarPedidosPorArmario(idArmario) {
+    buscarPedidosPorUsuario(idCliente) {
         return new Promise((resolve, reject) => {
-            var sql = 'SELECT idClie, cpfClie, emailClie, nomeClie, DATE_FORMAT(dataNiverClie,"%d/%m/%Y") as dataNiverClie FROM CLIENTES ORDER BY idClie';
+            var sql = `SELECT * FROM ChargerHelp.Pedido where id_cliente = ${idCliente}`;
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
+                    return reject("bUSCA POR PEDIDO FALHOU!");
                 }
                 resolve(recordset);
             });
         });
     }
-
-    buscarPedidosPorUsuario(idUsuario) {
-        return new Promise((resolve, reject) => {
-            var sql = 'SELECT idClie, cpfClie, emailClie, nomeClie, DATE_FORMAT(dataNiverClie,"%d/%m/%Y") as dataNiverClie FROM CLIENTES ORDER BY idClie';
-            this._bd.query(sql, function (erro, recordset) {
-                if (erro) {
-                    console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
-                }
-                resolve(recordset);
-            });
-        });
-    }
-
-    atualizarPedido(pedido) {
-        return new Promise((resolve, reject) => {
-            var sql = 'SELECT idClie, cpfClie, emailClie, nomeClie, DATE_FORMAT(dataNiverClie,"%d/%m/%Y") as dataNiverClie FROM CLIENTES ORDER BY idClie';
-            this._bd.query(sql, function (erro, recordset) {
-                if (erro) {
-                    console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
-                }
-                resolve(recordset);
-            });
-        });
-    }
-
-
 
  
 }

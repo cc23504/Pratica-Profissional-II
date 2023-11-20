@@ -1,12 +1,13 @@
-create schema ChargerHelp
+schema ChargerHelp
 
 create table ChargerHelp.Cliente (
-	cpf_cliente VARCHAR(11) NOT NULL,
+    cod_cliente INT IDENTITY,
+	cpf_cliente VARCHAR(20) NOT NULL,
 	nome_cliente varchar(40) NOT NULL,
-	telefone_cliente int char(12) NOT NULL,
+	telefone_cliente varchar (18) NOT NULL,
 	email_cliente varchar(40) NOT NULL,
 	senha_cliente varchar(20) NOT NULL,
-	CONSTRAINT PK_cliente PRIMARY KEY (cpf_cliente)
+	CONSTRAINT PK_cliente PRIMARY KEY (cod_cliente)
 )
 
 create table ChargerHelp.Carregador(
@@ -26,14 +27,72 @@ create table ChargerHelp.Armario(
 
 create table ChargerHelp.Pedido (
     id_pedido INT IDENTITY,
-    cpf_cliente VARCHAR(11) NOT NULL,
+    cod_cliente INT NOT NULL,
     id_armario int NOT NULL,
 	status_pedido varchar(10) NOT NULL,
 	horario_inicio date NOT NULL,
-	horario_final date NOT NULL,
+	horario_final date NULL,
     CONSTRAINT PK_pedido PRIMARY KEY (id_pedido),
-    CONSTRAINT FK_cpf_cliente FOREIGN KEY (cpf_cliente)
-	    REFERENCES ChargerHelp.Cliente(cpf_cliente),
+    CONSTRAINT FK_cod_cliente FOREIGN KEY (cod_cliente)
+	    REFERENCES ChargerHelp.Cliente(cod_cliente),
     CONSTRAINT FK_id_armario FOREIGN KEY (id_armario)
 	    REFERENCES ChargerHelp.Armario(id_armario)
 )
+
+
+const carregadores = [
+    {
+        marca: "Samsung",
+        nomeArmario: "Armario 1",
+        status : "Disponivel",
+        tipo: "type-c"
+    },
+    {
+        marca: "Apple" ,
+        nomeArmario: "Armario 2",
+        status : "Indisponivel",
+        tipo: "lightning"
+    },
+    {
+        marca: "LG" ,
+        nomeArmario: "Armario 3",
+        status : "Disponivel",
+        tipo: "micro-usb"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 4",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
+    {
+        marca: "Samsung",
+        nomeArmario: "Armario 5",
+        status : "Disponivel",
+        tipo: "type-c"
+    },
+    {
+        marca: "Apple" ,
+        nomeArmario: "Armario 6",
+        status : "Indisponivel",
+        tipo: "lightning"
+    },
+    {
+        marca: "LG" ,
+        nomeArmario: "Armario 7",
+        status : "Disponivel",
+        tipo: "micro-usb"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 8",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
+    {
+        marca: "Apple", 
+        nomeArmario: "Armario 9",
+        status : "Disponivel",
+        tipo: "wireless"
+    },
+]

@@ -3,13 +3,13 @@ class ClientesDao {
         this._bd = bd;
     }
 
-    inserirClienteNoBanco(nome_cliente, telefone_cliente, email_cliente) {
+    inserirClienteNoBanco(nome,email,cpf,telefone,senha) {
         return new Promise((resolve, reject) => {
-            const sql = `INSERT INTO ChargerHelp.Cliente (cpfClie, nomeClie, dataNiverClie, emailClie) VALUES ('${cpf}', '${nome}','${telefone}', '${email}')`
+            const sql = `INSERT INTO ChargerHelp.Cliente (cpf_cliente,nome_cliente, telefone_cliente, email_cliente,senha_cliente) VALUES ('${cpf}', '${nome}','${telefone}', '${email}',${senha})`
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("Lista de Clientes FALHOU!");
+                    return reject("CADASTRO DE CLIENTE FALHOU!");
                 }
                 resolve(recordset);
             });
