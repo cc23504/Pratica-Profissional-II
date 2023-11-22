@@ -9,10 +9,11 @@ class armariosCON {
             const armariosDB = new armariosDAO(bd);
             const result = await armariosDB.listarArmarios();
             const listaArmarios = result.recordset
+            const idCliente = req.params.idCliente
 
             console.log(listaArmarios)
 
-            res.render('alugar', { armarios: listaArmarios })
+            res.render('alugar', { armarios: listaArmarios, idCliente })
         }
     }
 }

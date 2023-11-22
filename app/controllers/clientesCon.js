@@ -18,10 +18,26 @@ class clientesCON {
             if (cliente.senha_cliente != senha) {
                 return res.send('Senha Invalida!')
             }
-            res.redirect('/alugar');
+            res.redirect(`/alugar/${cliente.cod_cliente}`);
         }
     }
 
+    cadastrar(){
+        return async function(req,res){
+            const nome = req.body.nome
+            const email = req.body.email
+            const cpf = req.body.cpf
+            const telefone = req.body.telefone
+            const senha = req.body.senha
+
+            const clientesDB = new clientesDAO(bd);
+            const result = await clientesDB.inserirClienteNoBanco(nome,email,cpf,telefone,senha)
+            
+
+            res.redirect('/login');           
+
+        }
+    }
     
 
 

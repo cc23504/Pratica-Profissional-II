@@ -10,17 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <title>Área de alugar - ChargerHelp</title>
-    <link rel="stylesheet" href="styleAlugar.css">
+    <link rel="stylesheet" href="/styleAlugar.css">
 </head>
 
 <body>
     <h1>ChargerHelp</h1>
     <h2>Seleção de armários</h2>
     <br>
-    <form action="" class="form-armarios">
+    <form action="/alugarArmario" method="post" class="form-armarios">
         <div class="lista-armarios">
+            <input type="text" name="idCliente" value="<%= idCliente %>" id="idCliente" hidden>
             <% armarios.forEach ((armario)=> {%>
-                <input type="radio" class="input"  hidden id="armario-<%= armario.id_armario %>" name="armario" value="<%= armario.id_armario %>"
+                <input type="radio" class="input"  hidden id="armario-<%= armario.id_armario %>" name="idArmario" value="<%= armario.id_armario %>"
                     <% if (armario.status==='Livre' && armario.id_armario == "1" ) { %>checked<% } %>    
                 <% if (armario.status==='Ocupado' ) { %>disabled<% } %>
                     >
