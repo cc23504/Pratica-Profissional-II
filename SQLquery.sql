@@ -1,4 +1,4 @@
-schema ChargerHelp
+create schema ChargerHelp
 
 create table ChargerHelp.Cliente (
     cod_cliente INT IDENTITY,
