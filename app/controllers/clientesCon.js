@@ -22,22 +22,26 @@ class clientesCON {
         }
     }
 
-    cadastrar(){
-        return async function(req,res){
-            const nome = req.body.nome
-            const email = req.body.email
-            const cpf = req.body.cpf
-            const telefone = req.body.telefone
-            const senha = req.body.senha
+cadastrar() {
+  return async (req, res) => {
+    try {
+      const { nome, email, cpf, telefone, senha } = req.body;
 
-            const clientesDB = new clientesDAO(bd);
-            const result = await clientesDB.inserirClienteNoBanco(nome,email,cpf,telefone,senha)
-            
+      const clientesDB = new clientesDAO(bd);
+      const result = await clientesDB.inserirClienteNoBanco(nome, email, cpf, telefone, senha);
 
-            res.redirect('/login');           
-
-        }
+      if (result) {
+        res.redirect('/login');
+      } else {
+        res.status(500).send("Erro ao cadastrar cliente.");
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Erro interno no servidor.");
     }
+  };
+}
+
     
 
 
