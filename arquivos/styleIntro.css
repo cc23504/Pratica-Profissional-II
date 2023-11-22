@@ -80,7 +80,7 @@ h3{
 .header-icons{
     display: flex;
     align-items: center;
-    color: var(--second-text-color);
+    color: var(--text-color);
 }
 
 #menu{
@@ -95,7 +95,7 @@ h3{
     font-size: 28px;
     cursor: pointer;
     transition: all .5s ease;
-    color: var(--second-text-color);
+    color: var(--text-color);
 
 }
 
@@ -281,15 +281,86 @@ h3{
     font-family: 'Poppins', sans-serif;
     text-align: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 22px;
     color:var(--second-text-color);
 }
 
 #conteudo img{
-    width: 450px;
+    width: 420px;
     height: auto;
 }
 
+/* Estilos para os conteúdos de perguntas frequentes e menu */
+#faq-content, #menu-content {
+    position: absolute;
+    top: 100%; /* Posicionamento abaixo dos ícones */
+    left: 0;
+    width: 200px; /* Largura do conteúdo */
+    padding: 10px;
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ccc; /* Borda */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    z-index: 1000; /* Certifica-se de que estejam acima dos outros elementos */
+    display: none; /* Inicialmente ocultos */
+}
+
+/* Estilo dos itens do menu */
+#menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-content ul li {
+    margin-bottom: 5px;
+}
+
+#menu-content ul li a {
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#menu-content ul li a:hover {
+    color: var(--other-color);
+}
+
+/* Estilos do chat */
+#chat {
+    position: absolute;
+    top: calc(100% + 10px); /* Posicionado abaixo do ícone */
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+/* Estilos visuais do ícone de perguntas frequentes (ajuste conforme necessário) */
+#icone-perguntas {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+#faq-content{
+    margin-left: 1000px;
+    margin-bottom: 800px;
+}
+#faq-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#faq-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--second-text-color);
+}
 
 
 a{
@@ -308,7 +379,7 @@ a{
 
 .texto {
     text-align: center; 
-    font-size: 24px;
+    font-size: 22px;
     max-width: 76%; 
     margin: 0 auto; 
 }
