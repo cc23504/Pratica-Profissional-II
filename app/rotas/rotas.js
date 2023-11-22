@@ -1,9 +1,11 @@
 const classArmariosCON = require('../controllers/armariosCON'); //importanto a classe armariosCON
 const classClientesCON = require('../controllers/clientesCON'); //importanto a class clientesCON
+const classPedidoCON = require('../controllers/pedidoCON');     //importando a class pedidoCON
 
 
 const clienteCon = new classClientesCON();      // instanciando a class
-const armariosCon = new classArmariosCON();      // instanciando a class
+const armariosCon = new classArmariosCON();     // instanciando a class
+const pedidoCon = new classPedidoCON();         //instanciando a class
 
 module.exports = (app) => {
     app.use((req, res, next) => {
@@ -12,23 +14,26 @@ module.exports = (app) => {
     });  // permite que o site seja acessado por todos.
 
 
-    app.get("/", (req, res) => {   // criando a rota principal que funciona para pagina de apresentação
+    app.get('/', (req, res) => {   // criando a rota principal que funciona para pagina de apresentação
         res.render("intro");     // esta renderizando a pagina de introdução
     });
 
-    app.get("/login", (req, res) => {
+    app.get('/login', (req, res) => {
         res.render("login");
     });
 
-    app.post("/fazerLoginCliente", clienteCon.fazerLogin()); //o formulario envia as informacoes de fazer login atraves da rota fazerLoginCliente 
+    app.post('/fazerLoginCliente', clienteCon.fazerLogin()); //o formulario envia as informacoes de fazer login atraves da rota fazerLoginCliente 
 
-    app.get("/cadastro", (req, res) => {
+    app.get('/cadastro', (req, res) => {
         res.render("cadastro");
     });
 
-    app.get("/alugar", armariosCon.carregarPaginaArmarios());
+    app.post('/cadastrar',clienteCon.cadastrar());
 
-    app.get("/confirmacao", (req, res) => {
-        res.render("confirmacao");
-    });
+    app.get('/alugar/:idCliente', armariosCon.carregarPaginaArmarios());
+
+    app.post('/alugarArmario', pedidoCon.alugar());
+
+    app.get('/confirmacao/:idPedido', pedidoCon.exibirTelaConfirmacao());
+   
 };

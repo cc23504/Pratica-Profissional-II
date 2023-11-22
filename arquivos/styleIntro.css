@@ -18,64 +18,69 @@
     --h1-font: 4rem;
     --p-font: 1rem;
 
+
 }
 
 body{
-    background-color: var(--bg-color);
+    background-color: rgb(157, 173, 157);
     color: var(--text-color);
 }
 
 header{
-    position: fixed;
     width: 100%;
+    height: 78px;
     top: 0;
     right: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 30px 8%;
+    background-color: rgb(126, 153, 126);
     color: var(--text-color);
 }
 
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
 
 .logo{
     font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     color: var(--text-color);
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
      
 }
 
-/* estilo simbolo logo */
 .logo i{
     color: var(--main-color);
-    font-weight: bold;
     margin-right: 5px;
+    font-weight: bold;
 }
 
 .navegação{
     display: flex;
+    margin-right: 100px;
 }
 
 .navegação a{
-    color:  var(--second-text-color);
+    color: var(--text-color);
     font-size: var(--p-font);
-    font-weight: 500;
+    font-size: 20px;
     margin: 0 30px;
     transition: a .55s ease;
 }
 
 .navegação a:hover{
-    color: var(--main-color)
+    color: var(--main-color);
 }
-
 .header-icons{
     display: flex;
     align-items: center;
-    color: var(--second-text-color);
+    color: var(--text-color);
 }
 
 #menu{
@@ -90,7 +95,7 @@ header{
     font-size: 28px;
     cursor: pointer;
     transition: all .5s ease;
-    color: var(--second-text-color);
+    color: var(--text-color);
 
 }
 
@@ -116,7 +121,6 @@ header{
     font-size: 70px;
     line-height: 1.2;
     margin-bottom: 2px;
-    margin-top: 35%;
     margin-left: 25%;
     color: var(--text-color);
     text-shadow: 2px 2px var(--main-color);
@@ -164,7 +168,6 @@ header{
     margin-left: 50%;
     border-radius: 50%;
     border: 3px solid var(--main-color);
-    /* box-shadow: 3px 3px  #4e9c61; */
     
 
 }
@@ -191,7 +194,7 @@ header{
 
 .main{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 3%;
     transform: translateY(-50%);
     display: flex;
@@ -266,7 +269,7 @@ header{
     margin-top: 10%;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 38px;
+    font-size: 36px;
     color: var(--main-color);
     height: auto;
     max-width: 100%;
@@ -278,32 +281,85 @@ header{
     font-family: 'Poppins', sans-serif;
     text-align: center;
     align-items: center;
-    font-size: 26px;
+    font-size: 22px;
     color:var(--second-text-color);
 }
 
 #conteudo img{
-    width: 500px;
+    width: 420px;
     height: auto;
 }
 
-#img2 {
-    display: flex; 
-    align-items: center; 
-    margin-top: 20px;
+/* Estilos para os conteúdos de perguntas frequentes e menu */
+#faq-content, #menu-content {
+    position: absolute;
+    top: 100%; /* Posicionamento abaixo dos ícones */
+    left: 0;
+    width: 200px; /* Largura do conteúdo */
+    padding: 10px;
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ccc; /* Borda */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    z-index: 1000; /* Certifica-se de que estejam acima dos outros elementos */
+    display: none; /* Inicialmente ocultos */
 }
 
-#img2 img {
-    margin-left: 20%;
-    width: 250px; 
-    margin-right: 16px; 
+/* Estilo dos itens do menu */
+#menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-#img2 p {
-    margin-right: 60px; 
-    font-family: 'Poppins', sans-serif;
-    font-size: 23px;
-    flex: 1; 
+#menu-content ul li {
+    margin-bottom: 5px;
+}
+
+#menu-content ul li a {
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#menu-content ul li a:hover {
+    color: var(--other-color);
+}
+
+/* Estilos do chat */
+#chat {
+    position: absolute;
+    top: calc(100% + 10px); /* Posicionado abaixo do ícone */
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+/* Estilos visuais do ícone de perguntas frequentes (ajuste conforme necessário) */
+#icone-perguntas {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+#faq-content{
+    margin-left: 1000px;
+    margin-bottom: 800px;
+}
+#faq-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#faq-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--second-text-color);
 }
 
 
@@ -323,34 +379,45 @@ a{
 
 .texto {
     text-align: center; 
-    font-size: 26px;
+    font-size: 22px;
     max-width: 76%; 
     margin: 0 auto; 
 }
 
-#atencao{
-    color: red;
-    font-size: 60px;
+#atencao {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 88px;
+    font-weight: bold;
+    background: var(--second-text-color);
+    -webkit-text-stroke: 1.5px rgb(187, 187, 187); 
+    -webkit-background-clip: text; 
+    color: transparent;
+    display: inline-block; /
 }
 
 #aviso{
     font-family: 'Poppins', sans-serif;
     text-align: center; 
-    font-size: 18px;
+    font-size: 21px;
     max-width: 70%;
     margin: 0 auto; 
+}
+
+#aviso b{
+    color: var(--main-color);
 }
 
 
 .btn2{
     display: inline-block;
     padding: 10px 70px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     background: transparent;
     border: solid 2px #5a5959;
     transition: all 0.55s ease;
     color: var(--second-text-color);
+    margin-bottom: 80px;
 }
 
 .btn2:hover{

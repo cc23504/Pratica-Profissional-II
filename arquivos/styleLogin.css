@@ -1,66 +1,147 @@
-body {
-    background-color:   #adb9af;
-    align-items: center;
-    text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+
 }
 
-h1 {
-    margin-left: 2%;
-    margin-bottom: 1%; 
-    margin-top: 2%;
-    color: rgb(219, 219, 219);
-    text-shadow: 4px 4px rgb(12, 70, 12);
-    font-family: "stone";
-    font-size: 138px;
+/* paleta de cores do site e o tamanho de fontes que sera usado */
+:root{
+    --bg-color:  #adb9af;
+    --text-color: #fff;
+    --second-text-color:  #3b3b3b;;
+    --main-color: rgb(17, 104, 17);;
+    --other-color: #7cff9d;
+    --h1-font: 4rem;
+    --p-font: 1rem;
+
+}
+
+body{
+    background-color: rgb(157, 173, 157);
+    color: var(--text-color);
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 30px 8%;
+    background-color: rgb(126, 153, 126);
+    color: var(--text-color);
+}
+
+
+.logo{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: bold;
+     
+}
+
+.logo i{
+    color: var(--main-color);
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+
+.navegação{
+    display: flex;
+    margin-right: 100px;
+}
+
+.navegação a{
+    color: var(--text-color);
+    font-size: var(--p-font);
+    font-size: 20px;
+    margin: 0 30px;
+    transition: a .55s ease;
+}
+
+.navegação a:hover{
+    color: var(--main-color)
+}
+
+h2{
+    color: var(--text-color);
+    text-shadow: 2px 2px var(--main-color);
+
+    font-size: 30px;
 }
 p{
-    font-family: "stone";
-    font-size: 21px;
-    color: rgb(102, 99, 99);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: 16px;
 }
 
-@font-face {
-    font-family: "stone";
-    src: url('./fontes/stoNe.ttf') format ('truetype');
-}
-input{
-    font-family: "stone";
-    background-color:   #adb9af;
-    border-color: rgb(219, 219, 219);
-    font-size: 15px;
-    height: 28px;
-    width: 280px;
-}
 .login-form {
-    width: 495px;
+    width: 480px;
+    height:320px;
     margin: 0 auto;
-    padding: 45px;
-    color:  rgb(102, 99, 99);
-    font-size: 22px;
-    font-family: "stone";
-    background-color:  #adb9af;
-    box-shadow: 0px 4px 12px 0px  rgb(102, 99, 99), 0 6px 20px 0  rgb(102, 99, 99);
-    border-color: rgb(102, 99, 99);
+    color: var(--text-color);
+    background-color: rgb(126, 153, 126);
+    font-family: 'Poppins', sans-serif;
+    border-color: var(--main-color);
     border-width: 1px;
     border-style: solid;
+    text-align: center;
+    border-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
+
+input {
+    font-family: 'Poppins', sans-serif;
+    border-color: rgb(219, 219, 219);
+    font-size: 18px;
+    width: 380px;
+    height: 34px;
+    margin-top: 14px;
+    border-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
 
 button{
-    font-size: 25px;
-    font-family: "stone";
+    width: 200px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
     margin-right: 4px;
     margin-left: 4px;
-    background-color:   #adb9af;
-    border-color: rgb(219, 219, 219);
-    color: rgb(102, 99, 99);
+    background-color:   var(--main-color);
+    color: var(--text-color);
+    border-color: var(--main-color);
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
-.link_cadastro {
-    color: rgb(12, 70, 12);
-    font-family: "stone";
+.link_login{
+    color: rgb(12, 70, 12) ;
+    font-family: 'Poppins', sans-serif;
 }
 
 footer{
     color: rgb(102, 99, 99);
     font-size: 23px;
+    margin-top: 15%;
 }
