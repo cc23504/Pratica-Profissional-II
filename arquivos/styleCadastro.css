@@ -70,9 +70,8 @@ header{
 }
 
 .navegação a:hover{
-    color: var(--main-color)
+    color: var(--main-color);
 }
-
 
 
 h1 {
@@ -148,7 +147,7 @@ button{
     border-top-left-radius: 5px;
 }
 
-.link_login{
+.link_cadastro{
     color: rgb(12, 70, 12);
     font-family: 'Poppins', sans-serif;
 }
