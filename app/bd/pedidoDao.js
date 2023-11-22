@@ -32,11 +32,11 @@ class PedidoDao {
 
     buscarPedidosPorUsuario(idCliente) {
         return new Promise((resolve, reject) => {
-            var sql = `SELECT * FROM ChargerHelp.Pedido where id_cliente = ${idCliente}`;
+            var sql = `SELECT * FROM ChargerHelp.Pedido where cod_cliente = ${idCliente}`;
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("bUSCA POR PEDIDO FALHOU!");
+                    return reject("BUSCA POR PEDIDO FALHOU!");
                 }
                 resolve(recordset);
             });
