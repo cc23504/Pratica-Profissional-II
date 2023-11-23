@@ -392,7 +392,7 @@ a{
     -webkit-text-stroke: 1.5px rgb(187, 187, 187); 
     -webkit-background-clip: text; 
     color: transparent;
-    display: inline-block; /
+    display: inline-block;
 }
 
 #aviso{

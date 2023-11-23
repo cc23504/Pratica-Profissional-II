@@ -14,47 +14,54 @@
 </head>
 
 <body>
-    <h1>ChargerHelp</h1>
-    <h2>Seleção de armários</h2>
+    <header>
+        <div class="topo">
+            <a href="#" class="logo"> <i class='bx bx-plus-circle'></i>ChargerHelp</a>
+            <ul class="navegação">
+                <li><a href="alugar">Seleção de carregadores</a></li>
+            </ul>
+        </div>
+    </header>
     <br>
     <form action="/alugarArmario" method="post" class="form-armarios">
         <div class="lista-armarios">
             <input type="text" name="idCliente" value="<%= idCliente %>" id="idCliente" hidden>
             <% armarios.forEach ((armario)=> {%>
-                <input type="radio" class="input"  hidden id="armario-<%= armario.id_armario %>" name="idArmario" value="<%= armario.id_armario %>"
-                    <% if (armario.status==='Livre' && armario.id_armario == "1" ) { %>checked<% } %>    
-                <% if (armario.status==='Ocupado' ) { %>disabled<% } %>
-                    >
+                <input type="radio" class="input" hidden id="armario-<%= armario.id_armario %>" name="idArmario"
+                    value="<%= armario.id_armario %>" <% if (armario.status==='Livre' && armario.id_armario=="1" ) {
+                    %>checked<% } %>
+                    <% if (armario.status==='Ocupado' ) { %>disabled<% } %>
+                            >
 
-                    <label for="armario-<%= armario.id_armario %>" class="cartao-armario">
-                        <img style="width: 108px; height: 110px; border-top-left-radius: 14px; border-bottom-left-radius: 14px"
-                            src="/type-c.jpg" />
+                            <label for="armario-<%= armario.id_armario %>" class="cartao-armario">
+                                <img style="width: 108px; height: 110px; border-top-left-radius: 14px; border-bottom-left-radius: 14px"
+                                    src="/type-c.jpg" />
 
-                        <div class="armario-informacao">
-                            <div class="armario-informacao-topo">
-                                <h3 class="armario-nome">
-                                    Armário <%= armario.id_armario %>
-                                </h3>
+                                <div class="armario-informacao">
+                                    <div class="armario-informacao-topo">
+                                        <h3 class="armario-nome">
+                                            Armário <%= armario.id_armario %>
+                                        </h3>
 
-                            </div>
+                                    </div>
 
-                            <div class="armario-informacao-baixo">
-                                <h4 class="armario-tipo-carregador">
-                                    <%= armario.tipo_carregador %>
-                                </h4>
-                                <h5 class="armario-marca-carregador">
-                                    <%= armario.marca_carregador %>
-                                </h5>
-                                <span
-                                    class="armario-status <% if (armario.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>">
-                                    <%= armario.status %>
-                                </span>
-                            </div>
+                                    <div class="armario-informacao-baixo">
+                                        <h4 class="armario-tipo-carregador">
+                                            <%= armario.tipo_carregador %>
+                                        </h4>
+                                        <h5 class="armario-marca-carregador">
+                                            <%= armario.marca_carregador %>
+                                        </h5>
+                                        <span
+                                            class="armario-status <% if (armario.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>">
+                                            <%= armario.status %>
+                                        </span>
+                                    </div>
 
-                        </div>
-                    </label>
+                                </div>
+                            </label>
 
-                    <% })%>
+                            <% })%>
         </div>
         <button type="submit" class="btn-alugar">ALUGAR</button>
     </form>
