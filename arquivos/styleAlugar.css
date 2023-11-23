@@ -39,12 +39,27 @@ h1 {
     padding: 30px 8%;
 }
 
+header{
+    width: 100%;
+    height: 100px;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 30px 8%;
+    background-color: rgb(126, 153, 126);
+    color: var(--text-color);
+}
+
+
 .logo{
-    background-color: rgb(157, 173, 157);
+    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     color: var(--text-color);
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
      
 }
@@ -54,6 +69,7 @@ h1 {
     margin-right: 5px;
     font-weight: bold;
 }
+
 
 .navegação{
     display: flex;
@@ -69,8 +85,9 @@ h1 {
 }
 
 .navegação a:hover{
-    color: var(--main-color);
+    color: var(--main-color)
 }
+
  h2 {
     font-family: "stone";
     font-size: 36px;
@@ -105,11 +122,11 @@ h3, h4, h5 {
     max-width: 460px;
     max-height: 110px;
     border-radius: 14px;
-    border: 2px white solid;
+    border: 2px var(--main-color) solid;
 }
 
 input[type="radio"]:checked+label {
-    border: 2px #4E9C61 solid;
+    border: 2px #77ca8c solid;
     background-color: rgba(193, 255, 183, 0.2);
 }
 
@@ -119,7 +136,7 @@ input[type="radio"]:disabled+label {
 }
 
 input[type="radio"]:disabled+label:hover {
-    border-color: white;
+    border-color: rgb(211, 28, 28);
     background-color: transparent;
 }
 
@@ -207,6 +224,7 @@ input[type="radio"]:disabled+label:hover {
 }
 
 .btn-alugar{
+    margin-top: 30px;
     width: 400px;
     display: inline-block;
     border-radius: 8px;

@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <title>Área de alugar - ChargerHelp</title>
     <link rel="stylesheet" href="/styleAlugar.css">
@@ -15,14 +17,12 @@
 
 <body>
     <header>
-        <div class="topo">
-            <a href="#" class="logo"> <i class='bx bx-plus-circle'></i>ChargerHelp</a>
-            <ul class="navegação">
-                <li><a href="alugar">Seleção de carregadores</a></li>
-            </ul>
-        </div>
+        <a href="#" class="logo"><i class='bx bx-plus-circle'></i>ChargerHelp</a>
+        <ul class="navegação">
+            <li><a href="alugar">Seleção de carregadores</a></li>
+        </ul>
     </header>
-    <br>
+    <br><br><br>
     <form action="/alugarArmario" method="post" class="form-armarios">
         <div class="lista-armarios">
             <input type="text" name="idCliente" value="<%= idCliente %>" id="idCliente" hidden>
