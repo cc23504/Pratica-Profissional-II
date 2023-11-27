@@ -1,59 +1,70 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.ArrayList;
 
 public class ControleArmario {
-
-    // Método para verificar se a porta está livre
-    public boolean verificarPortaLivre(int numeroPorta) {
-        // Assume que você já tem uma conexão com o banco de dados
-        try (Connection connection = DriverManager.getConnection("jdbc:regulus.cotuca.unicamp.br", "BD23507", "BD23507")) {
-            String sql = "SELECT pedido_id FROM Armario WHERE numero_porta = ?";
-            
-            try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                statement.setInt(1, numeroPorta);
-
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    if (resultSet.next()) {
-                        int pedidoId = resultSet.getInt("pedido_id");
-
-                        // Se há um pedido associado à porta, ela está ocupada
-                        return pedidoId == 0;
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Trate a exceção adequadamente na sua aplicação
-        }
-
-        // Retorna false se houver algum problema na verificação
-        return false;
-    }
-
     // Método para enviar informações para o Arduino
-    public void enviarInformacoesParaArduino(boolean portaLivre) {
-        if (portaLivre) {
-            // Código para acender a luz verde no Arduino
-            System.out.println("Luz verde acesa no Arduino");
-        } else {
-            // Código para acender a luz vermelha no Arduino
-            System.out.println("Luz vermelha acesa no Arduino");
+    public void enviarInformacoesParaArduino(ArrayList<Armario> armarios) {
+        // Falta implementar a biblioteca da porta Serial e enviar as mensagens.
+        for (Armario armario : armarios) {
+            //Serial.println("1P")
+            if(armario.status.equals("Aguardando")) {
+                System.out.println(armario.id_armario+"P"); // P = LED Piscando
+                //Serial.println(armario.id_armario+"D")
+            } else if (armario.status.equals("Ocupado")) {
+                System.out.println(armario.id_armario+"D"); // D = LED Desligado
+                //Serial.println(armario.id_armario+"D")
+            }else{
+                System.out.println(armario.id_armario+"L"); // L = LED Ligado
+                //Serial.println(armario.id_armario+"D")
+            }
+            
         }
     }
 
-    public static void main(String[] args) {
-        // Criar uma instância do ControleArmario
-        ControleArmario controleArmario = new ControleArmario();
+    public ArrayList<Armario> buscaEstadoArmarios() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .header("Accept", "application/json")
+                .uri(URI.create("http://localhost:3000/interface/armarios"))
+                .build();
 
-        // Número da porta que você deseja verificar
-        int numeroPorta = 1;
+        // A resposta do Node vem no formato "1,Aguardando;2,Ocupado;3,Livre"
+        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());  
 
-        // Verificar o status da porta no banco de dados
-        boolean portaLivre = controleArmario.verificarPortaLivre(numeroPorta);
+        System.out.print("Resposta: ");
+        System.out.println(response.body()); 
 
-        // Enviar informações para o Arduino com base no status da porta
-        controleArmario.enviarInformacoesParaArduino(portaLivre);
+        // Separa a string por ";". Cada string nova formada possui informações de um armário
+        // ex: ["1,Ocupado", "2,Livre"]
+        String stringsArmarios[] = response.body().split(";");
+
+        // Inicializa Arraylist (arraylist é mais fácil de lidar do que array comum [])
+        ArrayList<Armario> armarios = new ArrayList<Armario>();
+
+        for (String stringArmario : stringsArmarios) {
+            // Separa agora a string do armário por ","
+            // Cada string criada é um dado do armario
+            // Ex: ["8", "Livre"]
+            String dadosArmario[] = stringArmario.split(",");
+
+            // Instancia a classe Armario, passando o primeiro e segundo valores no array (id e estado)
+            Armario armario = new Armario(dadosArmario[0], dadosArmario[1]);
+            // Adiciona o armario ao arraylist de armarios
+            armarios.add(armario);
+
+            // Mostra informações do armário na tela
+            System.out.print("Armario ");
+            System.out.print(armario.id_armario);            
+            System.out.print(": ");
+            System.out.println(armario.status);
+        }
+
+        return armarios;
+
     }
 }

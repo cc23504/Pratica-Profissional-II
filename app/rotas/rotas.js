@@ -1,11 +1,13 @@
 const classArmariosCON = require('../controllers/armariosCON'); //importanto a classe armariosCON
 const classClientesCON = require('../controllers/clientesCON'); //importanto a class clientesCON
 const classPedidoCON = require('../controllers/pedidoCON');     //importando a class pedidoCON
+const classInterfaceCON = require('../controllers/interfaceCON');     //importando a class interfaceCON
 
 
 const clienteCon = new classClientesCON();      // instanciando a class
 const armariosCon = new classArmariosCON();     // instanciando a class
 const pedidoCon = new classPedidoCON();         //instanciando a class
+const interfaceCon = new classInterfaceCON();         //instanciando a class
 
 module.exports = (app) => {
     app.use((req, res, next) => {
@@ -36,4 +38,6 @@ module.exports = (app) => {
 
     app.get('/confirmacao/:idPedido', pedidoCon.exibirTelaConfirmacao());
    
+    //retorna a lista de armários e o estado deles para o java
+    app.get('/interface/armarios', interfaceCon.buscarInformacoesArmarios());
 };
