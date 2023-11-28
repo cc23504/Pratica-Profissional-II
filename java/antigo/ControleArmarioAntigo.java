@@ -1,10 +1,5 @@
+package antigo;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandler;
-import java.net.http.HttpResponse.BodyHandlers;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -58,19 +53,10 @@ public class ControleArmarioAntigo {
         // Número da porta que você deseja verificar
         int numeroPorta = 1;
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://pokeapi.co/api/v2/pokemon/ditto"))
-                .build();
-
-        HttpResponse response = client.send(request, BodyHandlers.ofString());
-        System.out.println(response.statusCode());        
-        System.out.println(response.body());
-
         // Verificar o status da porta no banco de dados
-        // boolean portaLivre = controleArmario.verificarPortaLivre(numeroPorta);
+        boolean portaLivre = controleArmario.verificarPortaLivre(numeroPorta);
 
         // Enviar informações para o Arduino com base no status da porta
-        // controleArmario.enviarInformacoesParaArduino(portaLivre);
+        controleArmario.enviarInformacoesParaArduino(portaLivre);
     }
 }

@@ -1,0 +1,1 @@
+DBCC CHECKIDENT ('ChargerHelp.NomeTabela', RESEED, 0) 

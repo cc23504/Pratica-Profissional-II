@@ -1,3 +1,4 @@
+package antigo;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,9 +16,13 @@ public class Principal {
       // Enviar informações para o Arduino com base no status da porta
       controleArmario.enviarInformacoesParaArduino(armarios);
 
-      Thread.sleep(2000);
-      // System.out.print("\033\143");
-    }
+     // FALTA IMPLEMENTAR A LEITURA DE INFORMAÇÕES DO CARREGAMENTO QUE VIRÃO DA SERIAL 
 
+      // Aguarda 2 segundos
+      Thread.sleep(2000);
+
+      // Limpa terminal
+      System.out.print("\033\143");
+    }
   }
 }
