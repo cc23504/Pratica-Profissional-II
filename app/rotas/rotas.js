@@ -40,4 +40,23 @@ module.exports = (app) => {
    
     //retorna a lista de armários e o estado deles para o java
     app.get('/interface/armarios', interfaceCon.buscarInformacoesArmarios());
+
+    // Rota para alugar um armário
+app.post('/alugarArmario', (req, res) => {
+    const idCliente = req.body.idCliente;
+    const idArmario = req.body.idArmario;
+    const tempoUso = req.body.tempoUso; // Recupera o tempo selecionado
+
+    // Aqui você pode realizar as operações para registrar o aluguel do armário com o tempo selecionado
+    pedidoCon.alugarArmario(idCliente, idArmario, tempoUso)
+        .then((resultado) => {
+            // Trate o resultado conforme necessário
+            res.status(200).json({ message: 'Armário alugado com sucesso!' });
+        })
+        .catch((erro) => {
+            // Em caso de erro, trate o erro e envie uma resposta apropriada
+            res.status(500).json({ error: 'Erro ao alugar o armário', detalhes: erro });
+        });
+});
+
 };
