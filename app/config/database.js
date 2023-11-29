@@ -4,9 +4,9 @@ try {
   mssql.connect({
     options: { trustServerCertificate: true },
     server: 'regulus.cotuca.unicamp.br',
-    user: 'BD23507',
-    password: 'BD23507',
-    database: 'BD23507',
+    user: 'BD23619',
+    password: 'BD23619',
+    database: 'BD23619',
  });
 
   console.log("CONEXÃO com o BD NODEJS realizada com SUCESSO!");

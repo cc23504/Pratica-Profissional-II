@@ -12,7 +12,6 @@ public class ControleArmario {
     public ControleArmario() throws IOException {
         String portaSerialArduino = "COM7";
         this.serial = new Serial(portaSerialArduino);
-        serial.enviarMensagem("1P");
     }
 
     // Método para enviar informações para o Arduino
@@ -33,7 +32,7 @@ public class ControleArmario {
     public ArrayList<Armario> buscaEstadoArmarios() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://192.168.1.243:3000/interface/armarios"))
+                .uri(URI.create("http://localhost:3000/interface/armarios"))
                 .build();
 
         // a resposta vem no formato "1,Aguardando;2,Ocupado;3,Livre"

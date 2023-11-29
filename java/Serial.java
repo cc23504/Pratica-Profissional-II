@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
@@ -10,10 +9,10 @@ public class Serial {
 
 	public Serial(String porta, ControleArmario controleArmario) {
 
-		// comando para mostrar nome das portas
-		// for (SerialPort port : SerialPort.getCommPorts()) {
-		// System.out.println(port.getDescriptivePortName());
-		// }
+	//	comando para mostrar nome das portas
+		for (SerialPort port : SerialPort.getCommPorts()) {
+		System.out.println(port.getDescriptivePortName());
+		}
 
 		this.serialPort = SerialPort.getCommPort(porta);
 		this.controleArmario = controleArmario;
