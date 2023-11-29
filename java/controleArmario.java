@@ -1,17 +1,19 @@
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class ControleArmario {
     Serial serial;
 
     public ControleArmario() throws IOException {
-        String portaSerialArduino = "COM7";
-        this.serial = new Serial(portaSerialArduino);
+        String portaSerialArduino = "COM4";
+        this.serial = new Serial(portaSerialArduino, this);
     }
 
     // Método para enviar informações para o Arduino
@@ -60,5 +62,26 @@ public class ControleArmario {
 
         return armarios;
 
+    }
+
+    public void atualizaStatusCarregamento(String mensagem) {
+        HttpClient client = HttpClient.newHttpClient();
+        
+        StringBuilder formBodyBuilder = new StringBuilder();
+        formBodyBuilder.append(URLEncoder.encode("msg", StandardCharsets.UTF_8));
+        formBodyBuilder.append("=");
+        formBodyBuilder.append(URLEncoder.encode(mensagem, StandardCharsets.UTF_8));
+
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create("http://localhost:3000/interface/AtualizaStatusCarregamento"))
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .POST(HttpRequest.BodyPublishers.ofString(formBodyBuilder.toString()))
+        .build();
+
+         try {
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }  
     }
 }
