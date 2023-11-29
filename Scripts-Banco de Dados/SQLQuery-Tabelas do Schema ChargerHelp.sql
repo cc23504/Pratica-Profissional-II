@@ -39,3 +39,4 @@ create table
         CONSTRAINT FK_cod_cliente FOREIGN KEY (cod_cliente) REFERENCES ChargerHelp.Cliente(cod_cliente),
         CONSTRAINT FK_id_armario FOREIGN KEY (id_armario) REFERENCES ChargerHelp.Armario(id_armario)
     )
+
