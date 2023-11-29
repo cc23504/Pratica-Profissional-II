@@ -26,10 +26,6 @@ class pedidoCON {
 
     async alugarArmario(idCliente, idArmario, tempoUso) {
         try {
-            // Execute as operações necessárias para registrar o aluguel do armário
-            // Isso pode incluir a atualização do banco de dados com o status "Ocupado" e o tempo de término do aluguel
-
-            // Exemplo fictício:
             const armarioAlugado = await ArmarioModel.findById(idArmario);
             armarioAlugado.status = 'Ocupado';
             armarioAlugado.tempoFimAluguel = new Date(Date.now() + tempoUso * 60000);
