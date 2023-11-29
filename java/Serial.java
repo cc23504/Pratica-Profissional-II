@@ -5,8 +5,9 @@ import com.fazecast.jSerialComm.SerialPortEvent;
 
 public class Serial {
 	private SerialPort serialPort;
+	private ControleArmario controleArmario;
 
-	public Serial(String porta) {
+	public Serial(String porta, ControleArmario controleArmario) {
 
 	//	comando para mostrar nome das portas
 		for (SerialPort port : SerialPort.getCommPorts()) {
@@ -14,6 +15,7 @@ public class Serial {
 		}
 
 		this.serialPort = SerialPort.getCommPort(porta);
+		this.controleArmario = controleArmario;
 
 		serialPort.setComPortParameters(9600, 8, 1, 0); // valores padrões Arduino
 		serialPort.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // block until bytes can be written
@@ -38,6 +40,10 @@ public class Serial {
 				byte[] newData = event.getReceivedData();
 				String response = new String(newData, 0, newData.length);
 				System.out.print("Arduino: " + response);
+				if (response.startsWith("C")) {
+					System.out.print("atualizando carregamento: " + response);
+					controleArmario.atualizaStatusCarregamento(response);
+				}
 			}
 		});
 	}

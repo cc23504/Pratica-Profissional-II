@@ -1,7 +1,7 @@
 
 // variáveis para controle de estado de pinos dos armarios
-int numeroPinoSENSORArmarios[] = {7, 6, 5, 4}; //armazena o numero dos pinos dos SENSORES de carregamento dos armarios no arduino
 int numeroPinoArmarios[] = {13, 12, 11, 10}; //armazena o numero dos pinos dos armarios no arduino
+int numeroPinoSENSORArmarios[] = {7, 6, 5, 4}; //armazena o numero dos pinos dos SENSORES de carregamento dos armarios no arduino
 char estadoArmarios[] = {'D', 'D', 'D', 'D'}; //armazena o estado dos armários D=Desligado, P=Piscando e L=Ligado
 int estadoPinoArmarios[] = {LOW, LOW, LOW, LOW}; //armazena o estado dos pinos dos armários (LOW=desligado) (HIGH=ligado)
 int estadoPinoSENSORArmarios[] = {LOW, LOW, LOW, LOW}; //armazena o estado dos pinos dos SENSORES dos armários (LOW=desligado) (HIGH=ligado)
@@ -26,7 +26,7 @@ void setup()
 }
 
 void atualizarPinoArmarios() { //atualiza valor do pino para todos os armários
-  for (int i = 0; i < sizeof(estadoPinoArmarios) / 2; ++i) {
+  for (int i = 0; i < (sizeof(estadoPinoArmarios) / sizeof(estadoPinoArmarios[0])); ++i) {
 	  verificaAlteraEstado(i); //verifica e aplica o estado correto o armário
   }
 }
@@ -62,7 +62,7 @@ void atualizaPiscante(int indiceArmario) { //se o estado atual for HIGH, então 
 }
 
 void mostrarEstadoArmarios() { // apenas envia para o Serial o estado das variaveis
-  for (int i = 0; i < sizeof(estadoPinoArmarios) / 2; ++i) {
+  for (int i = 0; i < (sizeof(estadoPinoArmarios) / sizeof(estadoPinoArmarios[0])); ++i) {
     Serial.print(i);
     Serial.print("|pino ");
     Serial.print(numeroPinoArmarios[i]);
@@ -78,8 +78,8 @@ void lerSerialAtualizarEstadoArmarios() {
     String comando = Serial.readStringUntil('\n');
     
     // enviar para o Serial que recebeu o comando
-    Serial.print("Recebeu ");    
-    Serial.println(comando);
+    // Serial.print("Recebeu ");    
+    // Serial.println(comando);
     
     //o comando tem o primeiro char como numero do armario e o segundo como o novo estado. ex: 1P, 2L, 3D
     //reconhece o armario e salva o novo estado no estado do armario
@@ -93,11 +93,11 @@ void lerSerialAtualizarEstadoArmarios() {
       estadoArmarios[3] = comando.charAt(1);
     }
     
-    mostrarEstadoArmarios(); // chama o metodo para mostrar estado dos armarios
+    // mostrarEstadoArmarios(); // chama o metodo para mostrar estado dos armarios
 }
 
 void verificaSensoresCarregamento() {
-  for (int i = 0; i < sizeof(estadoPinoArmarios) / 2; ++i) {
+  for (int i = 0; i < (sizeof(estadoPinoArmarios) / sizeof(estadoPinoArmarios[0])); ++i) {
     int valorLido = digitalRead(numeroPinoSENSORArmarios[i]);
     if(estadoPinoSENSORArmarios[i] != valorLido) {
       Serial.print("C");

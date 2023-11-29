@@ -20,7 +20,7 @@ class ArmariosDao {
         return new Promise((resolve, reject) => {
             var sql = `SELECT DISTINCT A.id_armario,
                             CASE 
-                                WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Ocupado' THEN 'Ocupado'
+                                WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Ativo' THEN 'Ocupado'
                                 WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Aguardando' THEN 'Aguardando'
                                 ELSE 'Livre' 
                             END AS status

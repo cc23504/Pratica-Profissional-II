@@ -10,12 +10,14 @@ class armariosCON {
             const result = await armariosDB.listarArmarios();
             const listaArmarios = result.recordset
             const idCliente = req.params.idCliente
+            
 
             console.log(listaArmarios)
 
             res.render('alugar', { armarios: listaArmarios, idCliente })
         }
     }
+    
 }
 
 module.exports = armariosCON
