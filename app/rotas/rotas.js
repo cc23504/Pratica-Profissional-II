@@ -38,6 +38,11 @@ module.exports = (app) => {
 
     app.get('/confirmacao/:idPedido', pedidoCon.exibirTelaConfirmacao());
    
+    // JAVA-ARDUINO ROTAS
+
     //retorna a lista de armários e o estado deles para o java
     app.get('/interface/armarios', interfaceCon.buscarInformacoesArmarios());
+
+    //atualiza o status de pedidos de acordo com troca de estado de carregamento de armários
+    app.post('/interface/AtualizaStatusCarregamento', interfaceCon.atualizarStatusCarregamento()); 
 };
