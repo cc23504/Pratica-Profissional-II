@@ -7,6 +7,7 @@ class PedidoDao {
         return new Promise((resolve, reject) => {
             const sql = `INSERT INTO ChargerHelp.Pedido (cod_cliente, id_armario, status_pedido, horario_inicio) VALUES ('${idCliente}', '${idArmario}', '${statusInicial}', '${dataAgora}');
             select @@IDENTITY as idPedido`
+            //A TRIGGER DEVE RETORNAR ESSE @@IDENTITY as idPedido
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
