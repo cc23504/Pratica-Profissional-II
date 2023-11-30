@@ -46,8 +46,8 @@ module.exports = (app) => {
     //atualiza o status de pedidos de acordo com troca de estado de carregamento de armários
     app.post('/interface/AtualizaStatusCarregamento', interfaceCon.atualizarStatusCarregamento()); 
     
-// Rota para alugar um armário
-app.post('/alugarArmario', (req, res) => {
+// Rota para alugar um armário por tempo
+app.post('/alugarArmarioPorTempo', (req, res) => {
     const idCliente = req.body.idCliente;
     const idArmario = req.body.idArmario;
     const tempoUso = req.body.tempoUso; // Recupera o tempo selecionado
