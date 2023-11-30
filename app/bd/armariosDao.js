@@ -18,16 +18,7 @@ class ArmariosDao {
 
     estadoSimplesArmarios() {
         return new Promise((resolve, reject) => {
-            var sql = `SELECT DISTINCT A.id_armario,
-                            CASE 
-                                WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Ativo' THEN 'Ocupado'
-                                WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Aguardando' THEN 'Aguardando'
-                                ELSE 'Livre' 
-                            END AS status
-                        FROM ChargerHelp.Armario AS A
-                        INNER JOIN ChargerHelp.Carregador AS C ON A.cod_carregador = C.cod_carregador
-                        LEFT OUTER JOIN ChargerHelp.Pedido AS P ON A.id_armario = P.id_armario AND P.status_pedido <> 'Livre';
-                    ` // select que retorna id do armario e o estado dele (Aguardando, Ocupado ou Livre)
+            var sql = 'select * from viewStatusAmario;' // select que retorna id do armario e o estado dele (Aguardando, Ocupado ou Livre)
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
