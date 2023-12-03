@@ -31,11 +31,15 @@ class clientesCON {
             const senha = req.body.senha
 
             const clientesDB = new clientesDAO(bd);
-            const result = await clientesDB.inserirClienteNoBanco(nome,email,cpf,telefone,senha)
-            
-
-            res.redirect('/login');           
-
+            try {
+                const result = await clientesDB.inserirClienteNoBanco(nome,email,cpf,telefone,senha)
+                res.redirect('/login');    
+            } catch(erro){
+                console.log(erro.message);
+                res.redirect('/cadastro?alertMessage='+erro.message);
+                return;
+            }
+                   
         }
     }
     

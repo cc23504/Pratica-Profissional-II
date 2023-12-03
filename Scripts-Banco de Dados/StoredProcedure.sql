@@ -1,6 +1,6 @@
 -- CÓDIGO ATUALIZADO PARA VERIFICAR A DUPLICAÇÃO DE CPF, EMAIL E TELEFONE NO BANCO DE DADOS
 
-CREATE PROCEDURE InserirCliente
+CREATE PROCEDURE ChargerHelp.InserirCliente
     @NomeCliente VARCHAR(40),
     @CPFCliente VARCHAR(20),
     @TelefoneCliente VARCHAR(18),
@@ -8,7 +8,7 @@ CREATE PROCEDURE InserirCliente
     @SenhaCliente VARCHAR(20)
 AS
 BEGIN
-    DECLARE @vCodCliente INT;
+    --DECLARE @vCodCliente INT;
     DECLARE @vExisteCPF INT;
     DECLARE @vExisteEmail INT;
     DECLARE @vExisteTelefone INT;
@@ -21,28 +21,27 @@ BEGIN
 
     IF @vExisteCPF > 0
     BEGIN
-        SELECT 'CPF já existe! Cadastro não realizado' AS retorno;
+        RAISERROR( 'CPF já existe! Cadastro não realizado',16 ,1 );
     END
     ELSE IF @vExisteEmail > 0
     BEGIN
-        SELECT 'E-mail já existe! Cadastro não realizado' AS retorno;
+        RAISERROR('E-mail já existe! Cadastro não realizado' ,16 ,1);
     END
     ELSE IF @vExisteTelefone > 0
     BEGIN
-        SELECT 'Telefone já existe! Cadastro não realizado' AS retorno;
+        RAISERROR('Telefone já existe! Cadastro não realizado',16 ,1);
     END
     ELSE 
     BEGIN
-        SELECT @vCodCliente = ISNULL(MAX(cod_cliente), 0) + 1 FROM ChargerHelp.Cliente;
+       -- SELECT @vCodCliente = ISNULL(MAX(cod_cliente), 0) + 1 FROM ChargerHelp.Cliente;
 
-        INSERT INTO ChargerHelp.Cliente (cod_cliente, cpf_cliente, nome_cliente, telefone_cliente, email_cliente, senha_cliente)
-        VALUES (@vCodCliente, @CPFCliente, @NomeCliente, @TelefoneCliente, @EmailCliente, @SenhaCliente);
+        INSERT INTO ChargerHelp.Cliente (cpf_cliente, nome_cliente, telefone_cliente, email_cliente, senha_cliente)
+        VALUES (@CPFCliente, @NomeCliente, @TelefoneCliente, @EmailCliente, @SenhaCliente);
 
-        SELECT @vCodCliente AS retorno;
+        SELECT @@IDENTITY AS retorno;
     END
 END;
 GO
-
 -- ************* VERIFICAÇÃO DA STORED PROCEDURE ****************** 
 -- (MOSTRAR O DUNCIONAMENTO PARA O PROFESSOR NA APRESENTAÇÃO)
 
