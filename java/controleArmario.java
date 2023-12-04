@@ -12,7 +12,7 @@ public class ControleArmario {
     Serial serial;
 
     public ControleArmario() throws IOException {
-        String portaSerialArduino = "COM4";
+        String portaSerialArduino = "COM11";  //Selecionar a porta que o arduino esta conectado
         this.serial = new Serial(portaSerialArduino, this);
     }
 

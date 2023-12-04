@@ -1,6 +1,0 @@
-Para executar com a biblioteca do Serial, é necessário selecionar o arquivo Principal.java, 
-depois la aonde mostra os arquivos, la embaixo, clicar em Java Projects e 
-em Referenced Libraries clicar no "+" e adicionar o arquivo jSerialComm-2.10.4.jar
-
-Execute o java no VSCode na aba "Run" ou "Executar", 
-clicando em "Run Without Debbuging" ou "Executar sem Debug"

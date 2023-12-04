@@ -42,26 +42,4 @@ BEGIN
     END
 END;
 GO
--- ************* VERIFICAÇÃO DA STORED PROCEDURE ****************** 
--- (MOSTRAR O DUNCIONAMENTO PARA O PROFESSOR NA APRESENTAÇÃO)
 
--- COLOCAR OS DADOS DE UM CLIENTE JÁ INSERIDO NO BANCO DE DADOS E TAMBÉM DE UM NOVO CLIENTE
-
--- DECLARE @retorno INT;
-
--- -- Teste de inserção de um novo cliente
--- EXEC InserirCliente 
---     @NomeCliente = 'NOME',
---     @CPFCliente = 'CPF',
---     @TelefoneCliente = 'TELEFONE', 
---     @EmailCliente = 'EMAIL', 
---     @SenhaCliente = 'SENHA';
-
--- -- Captura do valor retornado pela stored procedure
--- SELECT @retorno = SCOPE_IDENTITY();
-
--- -- Exibição do resultado do teste
--- IF @retorno IS NOT NULL AND @retorno > 0
---     PRINT 'Novo cliente inserido com sucesso! Código do cliente: ' + CAST(@retorno AS VARCHAR(10));
--- ELSE
---     PRINT 'Erro ao inserir o cliente.';

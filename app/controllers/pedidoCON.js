@@ -35,20 +35,6 @@ class pedidoCON {
     };
   }
 
-  // async alugarArmario(idCliente, idArmario, tempoUso) {
-  //   try {
-  //     const armarioAlugado = await ArmarioModel.findById(idArmario);
-  //     armarioAlugado.status = "Ocupado";
-  //     armarioAlugado.tempoFimAluguel = new Date(Date.now() + tempoUso * 60000);
-  //     await armarioAlugado.save();
-
-  //     return { success: true, message: "Armário alugado com sucesso!" };
-  //   } catch (error) {
-  //     // Em caso de erro, trate o erro e envie uma resposta apropriada
-  //     console.error("Erro ao alugar o armário:", error);
-  //     throw error;
-  //   }
-  // }
 
   exibirTelaMeusAlugueis() {
     return async function (req, res) {
