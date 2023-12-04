@@ -18,7 +18,7 @@ class clientesCON {
             if (cliente.senha_cliente != senha) {
                 return res.send('Senha Invalida!')
             }
-            res.redirect(`/alugar/${cliente.cod_cliente}`);
+            res.redirect(`/meusAlugueis/${cliente.cod_cliente}`);
         }
     }
 

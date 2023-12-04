@@ -10,7 +10,7 @@ class PedidoDao {
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
-                    return reject("FALHA NO PEDIDO!");
+                    return reject(erro);
                 }
                 resolve(recordset);
             });

@@ -20,6 +20,7 @@
   </head>
 
   <body>
+    
     <header>
       <a href="#" class="logo"><i class="bx bx-plus-circle"></i>ChargerHelp</a>
       <ul class="navegacao">
@@ -36,12 +37,11 @@
           id="idCliente"
           hidden
         />
-        <% armarios.forEach((armario, index) => { %>
-          <input type="radio" class="input" hidden id="armario-<%=
-          armario.id_armario %>" name="idArmario" value="<%= armario.id_armario
-          %>" <% if (armario.status === 'Livre' && index == 0) {
-          %>checked<% } %> <% if (armario.status === 'Ocupado') { %>disabled<% }
-          %>>
+        <% armarios.forEach((armario, index) => { %> <input type="radio"
+        class="input" hidden id="armario-<%= armario.id_armario %>"
+        name="idArmario" value="<%= armario.id_armario %>" <% if (armario.status
+        === 'Livre' && index == 0) { %>checked<% } %> <% if (armario.status ===
+        'Ocupado') { %>disabled<% } %>>
         <label for="armario-<%= armario.id_armario %>" class="cartao-armario">
           <img
             style="

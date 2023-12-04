@@ -8,13 +8,20 @@ class pedidoCON {
       const idArmario = req.body.idArmario;
       const statusInicial = "Aguardando";
       const dataAgora = new Date().toISOString();
+
       const pedidoDB = new pedidoDAO(bd);
-      const result = await pedidoDB.inserirNovoPedido(
-        idCliente,
-        idArmario,
-        statusInicial,
-        dataAgora
-      );
+      try {
+        const result = await pedidoDB.inserirNovoPedido(
+          idCliente,
+          idArmario,
+          statusInicial,
+          dataAgora
+        );
+      } catch (erro) {
+        console.log(erro.message);
+        res.redirect(`/meusAlugueis/${idCliente}?alertMessage=` + erro.message);
+        return;
+      }
 
       res.redirect(`/confirmacao/${idCliente}`);
     };
@@ -46,38 +53,38 @@ class pedidoCON {
   exibirTelaMeusAlugueis() {
     return async function (req, res) {
       const idCliente = req.params.idCliente;
-      const pedidoDB =  new pedidoDAO(bd);
+      const pedidoDB = new pedidoDAO(bd);
 
-      const resultadoPedido = await pedidoDB.buscarPedidoAtivoPorUsuario(idCliente);
+      const resultadoPedido = await pedidoDB.buscarPedidoAtivoPorUsuario(
+        idCliente
+      );
       let pedidoAtivo = null;
-      if(resultadoPedido.recordset && resultadoPedido.recordset.length > 0) {
+      if (resultadoPedido.recordset && resultadoPedido.recordset.length > 0) {
         pedidoAtivo = resultadoPedido.recordset[0];
       }
 
-
-      const resultadoPedidos = await pedidoDB.buscarPedidosPorUsuario(idCliente);
+      const resultadoPedidos = await pedidoDB.buscarPedidosPorUsuario(
+        idCliente
+      );
       let pedidos = [];
-      if(resultadoPedidos.recordset && resultadoPedidos.recordset.length > 0) {
+      if (resultadoPedidos.recordset && resultadoPedidos.recordset.length > 0) {
         pedidos = resultadoPedidos.recordset;
       }
 
-      res.render("meusAlugueis", {pedidos, pedido: pedidoAtivo, idCliente });
+      res.render("meusAlugueis", { pedidos, pedido: pedidoAtivo, idCliente });
     };
   }
 
-  finalizarAluguel(){
-    return async function(req,res){
+  finalizarAluguel() {
+    return async function (req, res) {
       const idCliente = req.body.idCliente;
       const idPedido = req.body.idPedido;
       const pedidoDB = new pedidoDAO(bd);
       const result = await pedidoDB.finalizarPedidoAtivo(idPedido);
 
-      res.redirect(`/meusAlugueis/${idCliente}`)
-
-    }
+      res.redirect(`/meusAlugueis/${idCliente}`);
+    };
   }
-
-
 }
 
 module.exports = pedidoCON;
