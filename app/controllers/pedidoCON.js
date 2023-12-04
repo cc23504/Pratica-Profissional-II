@@ -54,7 +54,6 @@ class pedidoCON {
         pedidoAtivo = resultadoPedido.recordset[0];
       }
 
-      console.log({pedidoAtivo})
 
       const resultadoPedidos = await pedidoDB.buscarPedidosPorUsuario(idCliente);
       let pedidos = [];
@@ -70,7 +69,6 @@ class pedidoCON {
     return async function(req,res){
       const idCliente = req.body.idCliente;
       const idPedido = req.body.idPedido;
-      console.log({body: req.body, idCliente, idPedido})
       const pedidoDB = new pedidoDAO(bd);
       const result = await pedidoDB.finalizarPedidoAtivo(idPedido);
 

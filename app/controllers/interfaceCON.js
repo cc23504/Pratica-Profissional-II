@@ -56,7 +56,7 @@ class interfaceCON {
             //primeiro busca se existe pedido com o idArmario e o status anterior
             const result = await pedidoDB.buscarPedidoAtivoPorIdArmario(idArmario, statusAnterior);
             const pedido = result.recordset[0];
-            console.log(pedido)
+           
 
             //se existir o pedido, atualiza o status dele para o novo status
             if(pedido) {
