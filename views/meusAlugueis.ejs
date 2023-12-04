@@ -14,15 +14,12 @@
   <body>
     <header>
       <a href="#" class="logo"><i class="bx bx-plus-circle"></i>ChargerHelp</a>
-      <ul class="navegacao">
-        <li><a href="alugar">Meus Alugueis</a></li>
-      </ul>
     </header>
 
     <div class="meuAluguel">
       <h1 class="tituloMeuAluguel">Meu aluguel ativo</h1>
       <% if (pedido) { %>
-      <form action="\finalizar" method="post" class="formMeuAluguel">
+      <form action="\finalizarAluguel" method="post" class="formMeuAluguel">
         <label class="cartao-armario">
           <div class="divArmario">
             <img
@@ -34,14 +31,11 @@
               "
               src="/<%= pedido.tipo_carregador%>.jpg"
             />
-            <input type="radio" class="input" hidden id="pedido-<%=
-            pedido.id_pedido %>" name="idPedido" value="<%= pedido.id_pedido %>"
-            <% if (pedido.status === 'Livre' && pedido.id_armario == "1") {
-            %>checked<% } %> <% if (pedido.status === 'Ocupado') { %>disabled<%
-            } %>><br />
+            <input hidden name="idPedido" value="<%= pedido.id_pedido %>" ><br />
+            <input hidden name="idCliente" value="<%= idCliente %>" >
             <div class="armario-informacao">
               <div class="armario-informacao-topo">
-                <h3 class="armario-nome">Pedido <%= pedido.id_pedido %></h3>
+                <h3 class="armario-nome">Armario <%= pedido.id_armario %></h3>
               </div>
               <div class="armario-informacao-baixo">
                 <h4 class="armario-tipo-carregador">
@@ -51,7 +45,7 @@
                   <%= pedido.marca_carregador %>
                 </h5>
                 <span
-                  class="armario-status <% if (pedido.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>"
+                  class="armario-status <% if (pedido.status === 'Ativo') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>"
                 >
                   <%= pedido.status %>
                 </span>
@@ -90,7 +84,7 @@
           %>><br />
           <div class="armario-informacao">
             <div class="armario-informacao-topo">
-              <h3 class="armario-nome">Pedido <%= pedido.id_pedido %></h3>
+              <h3 class="armario-nome">Armario <%= pedido.id_armario %></h3>
             </div>
             <div class="armario-informacao-baixo">
               <h4 class="armario-tipo-carregador">

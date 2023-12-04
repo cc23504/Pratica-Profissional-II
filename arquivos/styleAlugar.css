@@ -137,7 +137,7 @@ input[type="radio"]:disabled+label {
 }
 
 input[type="radio"]:disabled+label:hover {
-    border-color: rgb(211, 28, 28);
+    border-color: var(--main-color);
     background-color: transparent;
 }
 
@@ -243,20 +243,4 @@ input[type="radio"]:disabled+label:hover {
     border: none;
     background: #4E9C61;
     color: white;
-}
-
-/* Restante do seu CSS... */
-
-.armario-informacao {
-    /* ... Outras propriedades ... */
-    position: relative; /* Adiciona uma posição relativa para os elementos filhos */
-}
-
-.tempo-uso {
-   width: 20px;
-}
-
-.cartao-armario:hover .tempo-uso {
-    visibility: visible; /* Torna visível ao passar o mouse sobre o cartão do armário */
-    opacity: 1; /* Define a opacidade para 1 */
 }

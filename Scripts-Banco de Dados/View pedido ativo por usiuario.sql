@@ -2,6 +2,7 @@ CREATE VIEW ChargerHelp.ViewPedidoAtivoUsuario AS
 
 SELECT
     DISTINCT A.id_armario,
+    P.id_pedido,
     P.cod_cliente,
     C.marca_carregador,
     C.tipo_carregador,

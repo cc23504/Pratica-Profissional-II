@@ -33,8 +33,8 @@ create table
         cod_cliente INT NOT NULL,
         id_armario int NOT NULL,
         status_pedido varchar(10) NOT NULL,
-        horario_inicio date NOT NULL,
-        horario_final date NULL,
+        horario_inicio datetime NOT NULL,
+        horario_final datetime NULL,
         CONSTRAINT PK_pedido PRIMARY KEY (id_pedido),
         CONSTRAINT FK_cod_cliente FOREIGN KEY (cod_cliente) REFERENCES ChargerHelp.Cliente(cod_cliente),
         CONSTRAINT FK_id_armario FOREIGN KEY (id_armario) REFERENCES ChargerHelp.Armario(id_armario)

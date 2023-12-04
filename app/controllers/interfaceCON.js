@@ -37,7 +37,7 @@ class interfaceCON {
                 console.log({idArmario, estaCarregando})
             } else {
                 res.send()
-            }
+            } 
 
             let statusAnterior = "";
             let novoStatus = "";

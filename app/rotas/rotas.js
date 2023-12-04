@@ -35,9 +35,11 @@ module.exports = (app) => {
 
   app.post("/alugarArmario", pedidoCon.alugar());
 
-  app.get("/confirmacao/:idPedido", pedidoCon.exibirTelaConfirmacao());
+  app.get("/confirmacao/:idCliente", pedidoCon.exibirTelaConfirmacao());
 
   app.get("/meusAlugueis/:idCliente", pedidoCon.exibirTelaMeusAlugueis());
+
+  app.post("/finalizarAluguel", pedidoCon.finalizarAluguel());
 
   // JAVA-ARDUINO ROTAS
 

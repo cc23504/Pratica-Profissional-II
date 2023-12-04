@@ -15,34 +15,33 @@ class pedidoCON {
         statusInicial,
         dataAgora
       );
-      const pedidoCriado = result.recordset[0];
 
-      res.redirect(`/confirmacao/${pedidoCriado.idPedido}`);
+      res.redirect(`/confirmacao/${idCliente}`);
     };
   }
 
   exibirTelaConfirmacao() {
     return async function (req, res) {
-      const idPedido = req.params.idPedido;
+      const idCliente = req.params.idCliente;
 
-      res.render("confirmacao", { idPedido });
+      res.render("confirmacao", { idCliente });
     };
   }
 
-  async alugarArmario(idCliente, idArmario, tempoUso) {
-    try {
-      const armarioAlugado = await ArmarioModel.findById(idArmario);
-      armarioAlugado.status = "Ocupado";
-      armarioAlugado.tempoFimAluguel = new Date(Date.now() + tempoUso * 60000);
-      await armarioAlugado.save();
+  // async alugarArmario(idCliente, idArmario, tempoUso) {
+  //   try {
+  //     const armarioAlugado = await ArmarioModel.findById(idArmario);
+  //     armarioAlugado.status = "Ocupado";
+  //     armarioAlugado.tempoFimAluguel = new Date(Date.now() + tempoUso * 60000);
+  //     await armarioAlugado.save();
 
-      return { success: true, message: "Armário alugado com sucesso!" };
-    } catch (error) {
-      // Em caso de erro, trate o erro e envie uma resposta apropriada
-      console.error("Erro ao alugar o armário:", error);
-      throw error;
-    }
-  }
+  //     return { success: true, message: "Armário alugado com sucesso!" };
+  //   } catch (error) {
+  //     // Em caso de erro, trate o erro e envie uma resposta apropriada
+  //     console.error("Erro ao alugar o armário:", error);
+  //     throw error;
+  //   }
+  // }
 
   exibirTelaMeusAlugueis() {
     return async function (req, res) {
@@ -55,6 +54,8 @@ class pedidoCON {
         pedidoAtivo = resultadoPedido.recordset[0];
       }
 
+      console.log({pedidoAtivo})
+
       const resultadoPedidos = await pedidoDB.buscarPedidosPorUsuario(idCliente);
       let pedidos = [];
       if(resultadoPedidos.recordset && resultadoPedidos.recordset.length > 0) {
@@ -64,6 +65,21 @@ class pedidoCON {
       res.render("meusAlugueis", {pedidos, pedido: pedidoAtivo, idCliente });
     };
   }
+
+  finalizarAluguel(){
+    return async function(req,res){
+      const idCliente = req.body.idCliente;
+      const idPedido = req.body.idPedido;
+      console.log({body: req.body, idCliente, idPedido})
+      const pedidoDB = new pedidoDAO(bd);
+      const result = await pedidoDB.finalizarPedidoAtivo(idPedido);
+
+      res.redirect(`/meusAlugueis/${idCliente}`)
+
+    }
+  }
+
+
 }
 
 module.exports = pedidoCON;

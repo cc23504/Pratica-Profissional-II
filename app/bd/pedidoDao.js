@@ -85,5 +85,20 @@ class PedidoDao {
             });
         });
     }
+
+    finalizarPedidoAtivo(idPedido) {
+        return new Promise((resolve, reject) => {
+            const horarioAgora = (new Date()).toISOString();
+            var sql = `UPDATE ChargerHelp.Pedido SET status_pedido = 'Livre', horario_final = '${horarioAgora}' WHERE id_pedido = ${idPedido}`;
+            console.log(sql);
+            this._bd.query(sql, function (erro, recordset) {
+                if (erro) {
+                    console.log(erro);
+                    return reject("ALTERAÇÃO DO STATUS DO PEDIDO FALHOU!");
+                }
+                resolve(recordset);
+            });
+        });
+    }
 }
 module.exports = PedidoDao;
