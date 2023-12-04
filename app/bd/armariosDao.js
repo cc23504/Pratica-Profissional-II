@@ -5,7 +5,7 @@ class ArmariosDao {
     
     listarArmarios() {
         return new Promise((resolve, reject) => {
-            var sql = 'SELECT * FROM ViewArmariosComStatus;' // chama a view que retorna armário com informação do carregador e status
+            var sql = 'SELECT * FROM ChargerHelp.ViewArmariosComStatus;' // chama a view que retorna armário com informação do carregador e status
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);
@@ -18,7 +18,7 @@ class ArmariosDao {
 
     estadoSimplesArmarios() {
         return new Promise((resolve, reject) => {
-            var sql = 'select * from viewStatusAmario;' // select que retorna id do armario e o estado dele (Aguardando, Ocupado ou Livre)
+            var sql = 'select * from ChargerHelp.ViewStatusAmario;' // select que retorna id do armario e o estado dele (Aguardando, Ocupado ou Livre)
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);

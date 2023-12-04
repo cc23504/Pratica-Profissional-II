@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChargerHelp - Meus Alugueis</title>
+    <link rel="stylesheet" href="/styleMeusAlugueis.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo"><i class="bx bx-plus-circle"></i>ChargerHelp</a>
+      <ul class="navegacao">
+        <li><a href="alugar">Meus Alugueis</a></li>
+      </ul>
+    </header>
+
+    <div class="meuAluguel">
+      <h1 class="tituloMeuAluguel">Meu aluguel ativo</h1>
+      <% if (pedido) { %>
+      <form action="\finalizar" method="post" class="formMeuAluguel">
+        <label class="cartao-armario">
+          <div class="divArmario">
+            <img
+              style="
+                width: 108px;
+                height: 110px;
+                border-top-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+              "
+              src="/<%= pedido.tipo_carregador%>.jpg"
+            />
+            <input type="radio" class="input" hidden id="pedido-<%=
+            pedido.id_pedido %>" name="idPedido" value="<%= pedido.id_pedido %>"
+            <% if (pedido.status === 'Livre' && pedido.id_armario == "1") {
+            %>checked<% } %> <% if (pedido.status === 'Ocupado') { %>disabled<%
+            } %>><br />
+            <div class="armario-informacao">
+              <div class="armario-informacao-topo">
+                <h3 class="armario-nome">Pedido <%= pedido.id_pedido %></h3>
+              </div>
+              <div class="armario-informacao-baixo">
+                <h4 class="armario-tipo-carregador">
+                  <%= pedido.tipo_carregador %>
+                </h4>
+                <h5 class="armario-marca-carregador">
+                  <%= pedido.marca_carregador %>
+                </h5>
+                <span
+                  class="armario-status <% if (pedido.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>"
+                >
+                  <%= pedido.status %>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="acaoFinalizar">
+            <button type="submit" class="btn-alugar">Finalizar</button>
+          </div>
+        </label>
+      </form>
+      <% } else { %>
+        <h3>Você não possui alugueis ativo...</h3>
+        <a href="/alugar/<%= idCliente %>" class="btn-ir-Alugar">Alugar um Carregador</a>
+        <% } %>
+    </div>
+
+    <div class="meuHistorico">
+      <h1 class="tituloMeuHistorico">Meu Histórico</h1>
+      <% pedidos.forEach((pedido) => { %>
+      <label class="cartao-armarioHistorico">
+        <div class="divArmario">
+          <img
+            style="
+              width: 108px;
+              height: 110px;
+              border-top-left-radius: 14px;
+              border-bottom-left-radius: 14px;
+            "
+            src="/<%= pedido.tipo_carregador%>.jpg"
+          />
+          <input type="radio" class="input" hidden id="pedido-<%=
+          pedido.id_pedido %>" name="idPedido" value="<%= pedido.id_pedido %>"
+          <% if (pedido.status === 'Livre' && pedido.id_armario == "1") {
+          %>checked<% } %> <% if (pedido.status === 'Ocupado') { %>disabled<% }
+          %>><br />
+          <div class="armario-informacao">
+            <div class="armario-informacao-topo">
+              <h3 class="armario-nome">Pedido <%= pedido.id_pedido %></h3>
+            </div>
+            <div class="armario-informacao-baixo">
+              <h4 class="armario-tipo-carregador">
+                <%= pedido.tipo_carregador %>
+              </h4>
+              <h5 class="armario-marca-carregador">
+                <%= pedido.marca_carregador %>
+              </h5>
+              <span
+                class="armario-status <% if (pedido.status === 'Livre') { %>armario-disponivel-status<% } else { %>armario-ocupado-status<% } %>"
+              >
+                <%= pedido.status %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </label>
+      <% }) %>
+    </div>
+  </body>
+</html>

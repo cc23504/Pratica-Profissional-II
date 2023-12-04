@@ -46,7 +46,22 @@ class PedidoDao {
 
     buscarPedidosPorUsuario(idCliente) {
         return new Promise((resolve, reject) => {
-            var sql = `SELECT * FROM ChargerHelp.Pedido where cod_cliente = ${idCliente}`;
+            var sql = `SELECT * from ChargerHelp.ViewPedidosUsuario
+                        WHERE cod_cliente = ${idCliente};`;
+            this._bd.query(sql, function (erro, recordset) {
+                if (erro) { 
+                    console.log(erro);
+                    return reject("BUSCA POR PEDIDO FALHOU!");
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    buscarPedidoAtivoPorUsuario(idCliente) {
+        return new Promise((resolve, reject) => {
+            var sql = `SELECT * from ChargerHelp.ViewPedidoAtivoUsuario
+                        WHERE cod_cliente = ${idCliente};`;
             this._bd.query(sql, function (erro, recordset) {
                 if (erro) {
                     console.log(erro);

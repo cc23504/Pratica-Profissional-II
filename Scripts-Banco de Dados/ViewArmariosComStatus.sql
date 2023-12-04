@@ -1,4 +1,5 @@
-CREATE VIEW ViewArmariosComStatus AS
+-- SQLBook: Code
+CREATE VIEW ChargerHelp.ViewArmariosComStatus AS
 SELECT DISTINCT
     A.id_armario,
     C.marca_carregador,

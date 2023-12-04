@@ -1,4 +1,4 @@
-CREATE VIEW viewStatusAmario AS
+CREATE VIEW ChargerHelp.ViewStatusAmario AS
 SELECT DISTINCT A.id_armario,
     CASE 
         WHEN P.id_pedido IS NOT NULL AND P.status_pedido = 'Ativo' THEN 'Ocupado'
