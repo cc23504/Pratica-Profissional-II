@@ -13,7 +13,7 @@ BEGIN
 
     SELECT @StatusPedidoExistente = status_pedido
     FROM ChargerHelp.Pedido
-    WHERE cod_cliente = @CodCliente AND status_pedido = 'Ativo';
+    WHERE cod_cliente = @CodCliente AND (status_pedido = 'Ativo'  or status_pedido = 'Aguardando');
 
     IF @StatusPedidoExistente IS NOT NULL
     BEGIN
